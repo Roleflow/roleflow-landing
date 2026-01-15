@@ -1,19 +1,18 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 
-// Initializing Inter as the primary geometric font
+// Initializing Inter - The industry standard for high-status, clinical UI.
 const inter = Inter({ 
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
-  display: 'swap'
+  display: 'swap',
+  weight: ['400', '700', '900'] 
 })
 
 export const metadata = {
   title: 'Roleflow | AI Sales Infrastructure',
-  description: 'Deploy 24/7 AI Sales Operators to eliminate lead decay and maximize commissions.',
-  viewport: 'width=device-width, initial-scale=1',
+  description: 'Deploy 24/7 AI Sales Workforce to eliminate lead decay and maximize commissions.',
   icons: {
-    icon: '/icon.png',
+    icon: '/icon.png', // Uses your logo for the browser tab
   },
 }
 
@@ -24,14 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        {/* Ensures no zoom-scaling issues on mobile devices */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      </head>
-      <body className={`${inter.className} bg-[#020617] antialiased`}>
+      <body className={`${inter.className} bg-[#020617] text-white antialiased`}>
         {/* 
-           Since this is the landing page repo, we do NOT include the sidebar here.
-           This ensures a high-conversion, distraction-free sales funnel.
+           This container holds the Landing Page, the Qualification Form, 
+           and the Calendar Gate. 
         */}
         {children}
       </body>
