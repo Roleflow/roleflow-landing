@@ -2,25 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+   THE ARCHITECT'S ENFORCEMENT RULES:
+   1. No cursive/italics allowed (Clinical only).
+   2. Geometric spacing and letter-tracking.
+   3. Branded high-status scrollbars.
+*/
+
 * {
-  font-family: 'Inter', sans-serif !important;
-  text-transform: uppercase;
+  font-family: var(--font-inter), sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --brand-indigo: #4338ca;
+  --brand-orange: #f97316;
+  --bg-dark: #020617;
 }
 
 body {
-  background-color: #020617;
+  background-color: var(--bg-dark);
   color: white;
 }
 
-.bg-brand-gradient {
-  background: linear-gradient(to right, #4338ca, #f97316);
+/* Forces the high-status clinical look globally for all headers and triggers */
+h1, h2, h3, h4, h5, button, label, select, input, a {
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
+/* Custom Scrollbar: Branded Indigo to Orange Gradient */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--brand-indigo), var(--brand-orange));
+  border-radius: 10px;
+}
+
+/* Clinical Utility: Gradient Text for Logo/Branding */
 .text-brand-gradient {
-  background: linear-gradient(to right, #4338ca, #f97316);
+  background: linear-gradient(to right, var(--brand-indigo), var(--brand-orange));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-thumb { background: #4338ca; border-radius: 10px; }
+/* Remove all browser default focus rings for a high-end feel */
+*:focus {
+  outline: none !important;
+}
+
+/* Custom shadow for high-ticket cards */
+.shadow-neural {
+  box-shadow: 0 0 50px -12px rgba(67, 56, 202, 0.2);
+}
