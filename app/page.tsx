@@ -15,6 +15,10 @@ export default function LandingPage() {
     leadFlow: '', followers: '', revenue: '', offerSize: '', closingRate: ''
   });
 
+  // --- CONFIGURATION: PASTE YOUR LINKS HERE ---
+  const VSL_EMBED_URL = "PASTE_YOUR_LOOM_OR_YOUTUBE_EMBED_LINK_HERE"; 
+  const CALENDLY_URL = "https://calendly.com/YOUR_LINK";
+
   const questions = [
     { label: "PROTOCOL IDENTIFICATION", type: "fields" },
     { label: "DAILY DM LEAD FLOW", name: "leadFlow", options: ['0 - 10', '10 - 20', '20 - 40', '40+'] },
@@ -50,7 +54,7 @@ export default function LandingPage() {
   return (
     <div className="bg-[#020617] text-white min-h-screen font-sans uppercase selection:bg-orange-500 overflow-x-hidden">
       
-      {/* 1. NAV (REMOVED .AI) */}
+      {/* 1. NAV */}
       <nav className="p-8 md:p-10 max-w-7xl mx-auto flex justify-between items-center relative z-50">
         <div className="flex items-center gap-3">
           <img src="/logo.png" alt="Logo" className="h-10 w-10 rounded-full border border-orange-500/20" />
@@ -62,13 +66,13 @@ export default function LandingPage() {
       {/* 2. HERO & MIRROR */}
       <section className="max-w-7xl mx-auto px-10 pt-10 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center border-b border-white/5">
         <div className="space-y-8">
-           <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white">
+           <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] text-white">
              STOP<br/>LOSING<br/>REVENUE<br/>TO <span className="text-brand-gradient">SLOW DMS.</span>
            </h1>
            <div className="h-1.5 w-24 bg-orange-500"></div>
         </div>
 
-        <div className="relative bg-[#0A0F1E] border border-white/10 rounded-[3.5rem] shadow-2xl overflow-hidden h-[500px] flex flex-col">
+        <div className="relative bg-[#0A0F1E] border border-white/10 rounded-[3rem] shadow-2xl overflow-hidden h-[500px] flex flex-col">
             <div className="p-8 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
                 <div className="flex items-center gap-3">
                     <div className="h-10 w-10 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/30">
@@ -79,8 +83,8 @@ export default function LandingPage() {
                 <div className="bg-orange-500 text-white px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest">QUALIFIED</div>
             </div>
             <div className="flex-1 p-8 space-y-8">
-                <div className="flex justify-end"><div className="bg-indigo-600 p-6 rounded-3xl rounded-tr-none text-[11px] font-black leading-relaxed shadow-xl max-w-[80%]">YO BRO, SAW THE CLIPS. 🚀 THAT AESTHETIC IS CRAZY. HOW MUCH TO HOP ON?</div></div>
-                <div className="space-y-1"><p className="text-[8px] font-black text-indigo-400 ml-4">ROLEFLOW AI</p><div className="bg-white/5 border border-white/10 p-6 rounded-3xl rounded-tl-none text-[11px] font-black text-slate-300 leading-relaxed shadow-inner max-w-[85%]">AYY APPRECIATE YOU FAM! WE BARELY KEEPING UP WITH DEMAND TBH. YOU READY TO SCALE?</div></div>
+                <div className="flex justify-end"><div className="bg-indigo-600 p-5 rounded-3xl rounded-tr-none text-[11px] font-black leading-relaxed shadow-xl max-w-[80%] uppercase">YO BRO, SAW THE CLIPS. 🚀 THAT AESTHETIC IS CRAZY. HOW MUCH TO HOP ON?</div></div>
+                <div className="space-y-1"><p className="text-[8px] font-black text-indigo-400 ml-4">ROLEFLOW AI</p><div className="bg-white/5 border border-white/10 p-5 rounded-3xl rounded-tl-none text-[11px] font-black text-slate-300 leading-relaxed shadow-inner max-w-[85%] uppercase">AYY APPRECIATE YOU FAM! WE BARELY KEEPING UP WITH DEMAND TBH. YOU READY TO SCALE FR?</div></div>
             </div>
         </div>
       </section>
@@ -92,24 +96,38 @@ export default function LandingPage() {
           </p>
       </section>
 
-      {/* 4. VSL SECTION (REMOVED "THE BREAKDOWN" TEXT) */}
-      <section className="bg-white py-32 rounded-t-[5rem] text-center space-y-16">
+      {/* 4. THE VSL SECTION (FINALIZED PLAYER) */}
+      <section className="bg-white py-32 rounded-t-[5rem] text-center space-y-20">
+        <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-6xl md:text-9xl font-black text-slate-950 tracking-tighter uppercase leading-none">THE <br/>BREAKDOWN.</h2>
+        </div>
+        
         <div className="relative group max-w-5xl mx-auto px-6">
-            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-orange-500 rounded-[3rem] blur opacity-30"></div>
-            <div className="relative aspect-video bg-slate-900 rounded-[3rem] border border-slate-200 shadow-2xl flex items-center justify-center overflow-hidden">
-                <div className="h-20 w-20 bg-indigo-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"><Video size={32} className="text-white fill-current" /></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-orange-500 rounded-[3rem] blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+            <div className="relative aspect-video bg-black rounded-[3rem] border border-slate-200 shadow-2xl overflow-hidden flex items-center justify-center">
+                {/* 
+                   THE VSL PLAYER
+                   If using Loom, the URL usually looks like: https://www.loom.com/embed/XXXX
+                */}
+                <iframe 
+                  src={VSL_EMBED_URL}
+                  frameBorder="0" 
+                  allowFullScreen 
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
             </div>
         </div>
+
         <button onClick={() => setStep(2)} className="bg-slate-950 text-white px-20 py-8 rounded-[2.5rem] font-black text-2xl tracking-[0.4em] shadow-2xl hover:scale-105 transition-all">
             BOOK-IN <ArrowRight className="inline ml-4" size={28} />
         </button>
       </section>
 
-      {/* 5. EXPANDED SYSTEM OUTLINE (CENTERED) */}
+      {/* 5. SYSTEM OUTLINE (EXPANDED) */}
       <section id="system" className="py-40 bg-[#020617] text-center relative">
          <div className="max-w-7xl mx-auto px-10 space-y-32">
             <div className="space-y-6 flex flex-col items-center">
-                <h2 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-none">THE SYSTEM <br/>OUTLINE.</h2>
+                <h2 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-none text-white">THE SYSTEM <br/>OUTLINE.</h2>
                 <div className="h-2 w-48 bg-orange-500"></div>
                 <p className="text-slate-500 font-black uppercase text-sm tracking-[0.3em] pt-6">PROPRIETARY INFRASTRUCTURE ARCHITECTURE</p>
             </div>
@@ -123,19 +141,19 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-20 border-t border-white/5 max-w-5xl mx-auto">
                 <div className="flex flex-col gap-3 items-center">
                     <CheckCircle2 size={24} className="text-indigo-500" />
-                    <h5 className="font-black text-xl uppercase tracking-tighter">4-Pillar Integration</h5>
-                    <p className="text-[10px] font-black text-slate-500 tracking-widest">PERSONA • KNOWLEDGE • LOGIC • PROPERTIES</p>
+                    <h5 className="font-black text-xl uppercase tracking-tighter">4-PILLAR INTEGRATION</h5>
+                    <p className="text-[10px] font-black text-slate-500 tracking-widest uppercase">PERSONA • KNOWLEDGE • LOGIC • PROPERTIES</p>
                 </div>
                 <div className="flex flex-col gap-3 items-center">
                     <BarChart3 size={24} className="text-orange-500" />
-                    <h5 className="font-black text-xl uppercase tracking-tighter">Real-time Attribution</h5>
-                    <p className="text-[10px] font-black text-slate-500 tracking-widest">DIRECT REVENUE TRACKING VIA ROLEFLOW CRM</p>
+                    <h5 className="font-black text-xl uppercase tracking-tighter">REAL-TIME ATTRIBUTION</h5>
+                    <p className="text-[10px] font-black text-slate-500 tracking-widest uppercase">DIRECT REVENUE TRACKING VIA ROLEFLOW CRM</p>
                 </div>
             </div>
          </div>
       </section>
 
-      {/* 6. SURVEY OVERLAY (VISIBILITY FIX) */}
+      {/* 6. SURVEY OVERLAY */}
       {step === 2 && (
           <div className="fixed inset-0 z-[100] bg-black backdrop-blur-3xl flex items-center justify-center p-6">
               <div className="max-w-2xl w-full bg-white rounded-[4rem] p-10 md:p-16 space-y-12 shadow-2xl relative border-t-8 border-orange-500">
@@ -152,7 +170,7 @@ export default function LandingPage() {
                               <FormInput label="INSTAGRAM" name="handle" val={formData.handle} onChange={handleInput} />
                               <FormInput label="EMAIL" name="email" type="email" val={formData.email} onChange={handleInput} />
                               <FormInput label="PHONE" name="phone" type="tel" val={formData.phone} onChange={handleInput} />
-                              <button onClick={nextStep} className="col-span-1 md:col-span-2 mt-6 bg-indigo-600 text-white py-7 rounded-[2rem] font-black text-sm tracking-[0.4em] uppercase shadow-xl hover:bg-indigo-700 transition-all">CONTINUE PROTOCOL</button>
+                              <button onClick={nextStep} className="col-span-1 md:col-span-2 mt-6 bg-indigo-600 text-white py-6 rounded-[2rem] font-black text-sm tracking-[0.4em] uppercase shadow-xl hover:bg-indigo-700 transition-all">CONTINUE PROTOCOL</button>
                           </div>
                       ) : (
                           <div className="grid grid-cols-1 gap-4">
@@ -178,25 +196,25 @@ export default function LandingPage() {
                       <CheckCircle2 size={60} className="text-emerald-500 mx-auto" />
                       <h2 className="text-6xl font-black uppercase tracking-tighter text-white">PROTOCOL ACCEPTED.</h2>
                       <div className="bg-white rounded-[3rem] p-2 shadow-2xl min-h-[750px] border-8 border-indigo-600/20">
-                          <iframe src="https://calendly.com/YOUR_LINK" width="100%" height="750" frameBorder="0"></iframe>
+                          <iframe src={CALENDLY_URL} width="100%" height="750" frameBorder="0"></iframe>
                       </div>
                   </div>
               ) : (
                   <div className="max-w-md w-full bg-white rounded-[4rem] p-16 space-y-10 text-slate-950 shadow-2xl">
                       <Lock size={60} className="mx-auto text-indigo-600" />
-                      <h2 className="text-4xl font-black uppercase tracking-tighter leading-none text-slate-900">ACCESS <br/>DENIED.</h2>
+                      <h2 className="text-4xl font-black uppercase tracking-tighter leading-none text-slate-900 uppercase">ACCESS <br/>DENIED.</h2>
                       <p className="text-[11px] font-black text-slate-400 uppercase leading-loose tracking-widest">METRICS DO NOT MEET THE MINIMUM INFRASTRUCTURE REQUIREMENTS. DATA LOGGED FOR FUTURE RE-EVALUATION.</p>
-                      <button onClick={() => {setStep(1); setSurveyStep(0);}} className="text-[10px] font-black text-indigo-600 border-b-2 border-indigo-600 pb-1">RETURN HOME</button>
+                      <button onClick={() => {setStep(1); setSurveyStep(0);}} className="text-[10px] font-black text-indigo-600 border-b-2 border-indigo-600 pb-1 uppercase">RETURN HOME</button>
                   </div>
               )}
           </div>
       )}
 
-      {/* 8. FOOTER (IMAGE 86 STYLE) */}
+      {/* 8. FOOTER */}
       <footer className="bg-black py-16 px-10 flex flex-col md:flex-row justify-between items-center gap-12 border-t border-white/5">
          <div className="flex items-center gap-4">
-            <img src="/logo.png" alt="Logo" className="h-10 w-10 rounded-full border border-orange-500/20" />
-            <span className="font-black text-xl tracking-tighter uppercase">ROLEFLOW</span>
+            <img src="/logo.png" alt="Logo" className="h-10 w-10 rounded-full border border-orange-500/20 shadow-lg shadow-orange-500/10" />
+            <span className="font-black text-xl tracking-tighter uppercase text-white">ROLEFLOW</span>
          </div>
          <div className="flex gap-12 text-[11px] font-black text-slate-600 uppercase tracking-widest">
             <a href="#" className="hover:text-white transition">Privacy Policy</a>
