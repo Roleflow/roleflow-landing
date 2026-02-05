@@ -18,31 +18,28 @@ export default function LandingPage() {
     leadFlow: '', followers: '', revenue: '', offerSize: ''
   });
 
-  // --- UPDATED PARTNER LOGOS ---
-  const partnerLogos = [
-    { src: '/logo1.png', alt: 'Value Add Marketing' },
-    { src: '/logo2.png', alt: 'Land Flipping Empire' },
-    { src: '/logo3.png', alt: 'ConquerGrowth' },
-  ];
-
+  // --- REALISTIC COMPANY TESTIMONIALS ---
   const testimonials = [
     {
-      name: "Alex Rivera",
-      handle: "@riveracoaching",
-      result: "+$42k Revenue",
-      text: "RoleFlow cleared my DMs in 48 hours. We booked 12 high-ticket calls in the first week without me touching the app once.",
+      company: "VALUE ADD MARKETING",
+      logo: "/logo1.png",
+      industry: "REAL ESTATE MARKETING",
+      result: "+$120K GCI GENERATED",
+      text: "ROLEFLOW TRANSFORMED OUR IG OUTREACH. WE ARE NOW QUALIFYING LUXURY REAL ESTATE LEADS AT SCALE WITHOUT OUR HUMAN SETTERS GETTING BURNT OUT. THE ROI WAS INSTANT.",
     },
     {
-      name: "Sarah Jenkins",
-      handle: "@sarahfit_biz",
-      result: "85% Qualify Rate",
-      text: "The AI doesn't just chat, it sells. My sales team is finally only talking to people who can actually afford our $5k package.",
+      company: "LAND FLIPPING EMPIRE",
+      logo: "/logo2.png",
+      industry: "LAND INVESTING COACHING",
+      result: "82% LEAD-TO-CALL RATE",
+      text: "WE DEAL WITH HIGH-TICKET COACHING. THE AI FILTERS OUT THE 'WINDOW SHOPPERS' AND ONLY BOOKS THE SERIOUS INVESTORS. IT PAID FOR ITSELF IN THE FIRST 3 DAYS.",
     },
     {
-      name: "Marcus Thorne",
-      handle: "@thorneconsulting",
-      result: "24/7 Coverage",
-      text: "I used to lose leads because I'd sleep while my global audience was awake. Now, RoleFlow closes the gap while I'm offline.",
+      company: "CONQUERGROWTH",
+      logo: "/logo3.png",
+      industry: "HOME IMPROVEMENT AGENCY",
+      result: "340+ APPOINTMENTS",
+      text: "SPEED TO LEAD IS EVERYTHING IN HOME IMPROVEMENT. ROLEFLOW RESPONDS INSTANTLY, SECURING THE PROJECT BEFORE OUR COMPETITORS EVEN SEE THE NOTIFICATION.",
     }
   ];
 
@@ -50,10 +47,10 @@ export default function LandingPage() {
   const CALENDLY_URL = "https://calendly.com/roleflow/discovery"; 
 
   const questions = [
-    { label: "Identity Verification", type: "fields" },
-    { label: "Daily Lead Volume", name: "leadFlow", options: ['0 - 10 leads', '10 - 20 leads', '20 - 40 leads', '40+ leads'] },
-    { label: "Current Monthly Revenue", name: "revenue", options: ['$0 - $15k', '$15k - $30k', '$30k - $100k', '$100k+'] },
-    { label: "Average Offer Size", name: "offerSize", options: ['$0 - $1.5k', '$1.5k - $3k', '$3k - $10k', '$10k+'] }
+    { label: "IDENTITY VERIFICATION", type: "fields" },
+    { label: "DAILY LEAD VOLUME", name: "leadFlow", options: ['0 - 10 LEADS', '10 - 20 LEADS', '20 - 40 LEADS', '40+ LEADS'] },
+    { label: "CURRENT MONTHLY REVENUE", name: "revenue", options: ['$0 - $15K', '$15K - $30K', '$30K - $100K', '$100K+'] },
+    { label: "HIGH-TICKET OFFER SIZE", name: "offerSize", options: ['$0 - $1.5K', '$1.5K - $3K', '$3K - $10K', '$10K+'] }
   ];
 
   const handleTogglePlay = () => {
@@ -65,13 +62,12 @@ export default function LandingPage() {
   };
 
   const nextStep = () => {
-    if (surveyStep < questions.length - 1) setStep(step); // Logic stays on modal
     if (surveyStep < questions.length - 1) setSurveyStep(surveyStep + 1);
     else finalize();
   };
 
   const finalize = () => {
-    const qualified = formData.revenue !== '$0 - $15k' && formData.offerSize !== '$0 - $1.5k';
+    const qualified = formData.revenue !== '$0 - $15K' && formData.offerSize !== '$0 - $1.5K';
     setIsQualified(qualified);
     setStep(3);
   };
@@ -82,7 +78,7 @@ export default function LandingPage() {
       {/* 1. TOP ANNOUNCEMENT */}
       <div className="bg-blue-600 py-2.5 text-center">
         <p className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-white uppercase px-4">
-          Now Accepting 3 New Clients for February • AI Setting Infrastructure v5.0
+          NOW ACCEPTING 3 NEW CLIENTS FOR FEBRUARY • AI INFRASTRUCTURE V5.0
         </p>
       </div>
 
@@ -98,7 +94,7 @@ export default function LandingPage() {
           onClick={() => setStep(2)} 
           className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-xs font-bold tracking-widest transition-all shadow-lg shadow-blue-600/20 uppercase"
         >
-          Get Started
+          GET STARTED
         </button>
       </nav>
 
@@ -107,21 +103,21 @@ export default function LandingPage() {
         <div className="space-y-8">
            <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full">
              <div className="h-1.5 w-1.5 rounded-full bg-blue-500"></div>
-             <span className="text-[10px] font-bold tracking-widest text-blue-400 uppercase">System Status: Active</span>
+             <span className="text-[10px] font-bold tracking-widest text-blue-400 uppercase">SYSTEM STATUS: ACTIVE</span>
            </div>
            
            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] uppercase">
-             Stop Losing <span className="text-blue-600 font-black">$10k+/Month</span><br/>
-             To Slow IG DMs.
+             STOP LOSING <span className="text-blue-600 font-black">$10K+/MONTH</span><br/>
+             TO SLOW IG DMS.
            </h1>
 
-           <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
-             RoleFlow installs a proprietary AI sales workforce that qualifies leads and books high-ticket meetings in less than 60 seconds. <span className="text-white border-b-2 border-blue-600">24/7 coverage. Zero headcount.</span>
+           <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl uppercase text-sm tracking-wide">
+             ROLEFLOW INSTALLS A PROPRIETARY AI SALES WORKFORCE THAT QUALIFIES LEADS AND BOOKS HIGH-TICKET MEETINGS IN LESS THAN 60 SECONDS. <span className="text-white border-b-2 border-blue-600">24/7 COVERAGE. ZERO HEADCOUNT.</span>
            </p>
 
            <div className="pt-4 flex flex-col sm:flex-row gap-4">
-              <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 group w-full sm:w-auto uppercase tracking-wide">
-                Scale My Acquisition <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 group w-full sm:w-auto uppercase tracking-widest">
+                SCALE MY ACQUISITION <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
            </div>
         </div>
@@ -133,40 +129,29 @@ export default function LandingPage() {
                 <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
                     <div className="flex items-center gap-3">
                         <img src="/logo.png" className="h-6 w-6 opacity-80" alt="Icon" />
-                        <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">AI Setting Agent</p>
+                        <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">AI SETTING AGENT</p>
                     </div>
-                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold uppercase border border-emerald-500/20">Qualified</div>
+                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold uppercase border border-emerald-500/20 tracking-widest">QUALIFIED</div>
                 </div>
                 
                 <div className="flex-1 p-6 space-y-6 overflow-y-auto">
-                    <ChatBubble role="lead" text="Hey! I'm interested in the program. How much is it?" />
-                    <ChatBubble role="ai" text="I'd love to help with that! To see if we're a fit, are you currently doing more than $10k/month in your business?" />
-                    <ChatBubble role="lead" text="Yeah, we just hit $25k last month." />
-                    <ChatBubble role="ai" text="Amazing. You're a perfect candidate. I have a slot open for a Strategy Call tomorrow at 2pm. Want it?" />
+                    <ChatBubble role="lead" text="HEY! I'M INTERESTED IN THE PROGRAM. HOW MUCH IS IT?" />
+                    <ChatBubble role="ai" text="I'D LOVE TO HELP WITH THAT! TO SEE IF WE'RE A FIT, ARE YOU CURRENTLY DOING MORE THAN $10K/MONTH IN YOUR BUSINESS?" />
+                    <ChatBubble role="lead" text="YEAH, WE JUST HIT $25K LAST MONTH." />
+                    <ChatBubble role="ai" text="AMAZING. YOU'RE A PERFECT CANDIDATE. I HAVE A SLOT OPEN FOR A STRATEGY CALL TOMORROW AT 2PM. WANT IT?" />
                 </div>
             </div>
         </div>
       </section>
 
-      {/* 4. BUSINESS LOGOS BAR */}
-      <section className="border-y border-white/5 bg-white/5 py-14 px-6">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-center text-[10px] font-bold text-slate-500 tracking-[0.3em] uppercase mb-12">Trusted By Industry Leaders</p>
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale">
-                {partnerLogos.map((logo, idx) => (
-                    <div key={idx} className="flex flex-col items-center gap-3">
-                        <img src={logo.src} alt={logo.alt} className="h-8 md:h-12 w-auto object-contain" />
-                        <span className="text-[9px] font-bold text-slate-400 tracking-widest uppercase">{logo.alt}</span>
-                    </div>
-                ))}
-            </div>
-          </div>
-      </section>
-
-      {/* 5. VSL & TESTIMONIALS SECTION */}
+      {/* 4. VSL & TESTIMONIALS SECTION */}
       <section className="bg-white py-24 rounded-t-[3rem] md:rounded-t-[5rem] text-center shadow-2xl">
         <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-8 uppercase">The Breakdown</h2>
+            <div className="mb-12">
+               <p className="text-blue-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-4">PARTNER RESULTS</p>
+               <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight uppercase">TRUSTED BY HIGH-TICKET FOUNDERS</h2>
+            </div>
+            
             <div className="relative aspect-video bg-slate-900 rounded-[2rem] border-[12px] border-slate-100 shadow-2xl overflow-hidden cursor-pointer group mb-24" onClick={handleTogglePlay}>
                 <video ref={videoRef} playsInline className="w-full h-full object-cover" src={VSL_VIDEO_URL} onEnded={() => setIsPlaying(false)} />
                 {!isPlaying && (
@@ -178,52 +163,55 @@ export default function LandingPage() {
                 )}
             </div>
 
-            {/* TESTIMONIALS GRID */}
-            <div className="text-center mb-12">
-               <p className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">Partner Results</p>
-               <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase">Trusted By High-Ticket Founders</h3>
-            </div>
-
+            {/* REALISTIC TESTIMONIALS GRID */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               {testimonials.map((t, i) => (
-                <div key={i} className="bg-slate-50 border border-slate-200 p-8 rounded-[2rem] space-y-4 hover:border-blue-200 transition-colors">
-                  <div className="flex gap-1 text-orange-500">
-                    {[...Array(5)].map((_, star) => <Star key={star} size={14} fill="currentColor" />)}
-                  </div>
-                  <p className="text-slate-600 font-medium leading-relaxed uppercase text-xs tracking-tight">"{t.text}"</p>
-                  <div className="pt-6 border-t border-slate-200 flex justify-between items-center">
-                    <div>
-                      <p className="font-bold text-slate-900 leading-none mb-1 uppercase text-sm">{t.name}</p>
-                      <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">{t.handle}</p>
+                <div key={i} className="bg-white border border-slate-200 p-8 rounded-[2.5rem] space-y-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-start">
+                        <img src={t.logo} alt={t.company} className="h-10 w-auto object-contain opacity-80" />
+                        <div className="flex gap-0.5 text-orange-500">
+                            {[...Array(5)].map((_, star) => <Star key={star} size={14} fill="currentColor" />)}
+                        </div>
                     </div>
-                    <p className="text-blue-600 font-black text-sm uppercase leading-none">{t.result}</p>
+                    <p className="text-slate-600 font-bold leading-relaxed uppercase text-[11px] tracking-wide border-l-2 border-blue-500 pl-4 italic-none">
+                        "{t.text}"
+                    </p>
+                  </div>
+                  
+                  <div className="pt-6 border-t border-slate-100 flex justify-between items-end">
+                    <div>
+                      <p className="font-extrabold text-slate-900 uppercase text-xs tracking-tighter">{t.company}</p>
+                      <p className="text-[9px] text-slate-400 font-bold tracking-[0.2em] uppercase">{t.industry}</p>
+                    </div>
+                    <p className="text-blue-600 font-black text-xs uppercase tracking-tighter whitespace-nowrap">{t.result}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <button onClick={() => setStep(2)} className="mt-20 bg-slate-900 text-white px-12 py-7 rounded-2xl font-bold text-xl hover:bg-blue-600 transition-all flex items-center gap-4 mx-auto uppercase tracking-tighter">
-                Apply To Partner <ArrowRight />
+            <button onClick={() => setStep(2)} className="mt-20 bg-slate-900 text-white px-12 py-7 rounded-2xl font-bold text-xl hover:bg-blue-600 transition-all flex items-center gap-4 mx-auto uppercase tracking-tighter shadow-2xl">
+                APPLY TO PARTNER <ArrowRight />
             </button>
         </div>
       </section>
 
-      {/* 6. SYSTEM OUTLINE GRID */}
+      {/* 5. SYSTEM OUTLINE GRID */}
       <section className="py-32 bg-[#030712] border-t border-white/5">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-24">
-                <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-tight">The System Outline</h2>
+                <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-tight">THE SYSTEM OUTLINE</h2>
                 <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-               <OutlineCard num="01" title="Data Ingestion" detail="We sync your program knowledge and FAQs into our proprietary neural model." icon={<Search size={28}/>} />
-               <OutlineCard num="02" title="AI Deployment" detail="Our agents take over your DMs 24/7, qualifying every lead in your brand voice." icon={<Cpu size={28}/>} />
-               <OutlineCard num="03" title="Auto-Booking" detail="High-intent leads are automatically pushed to your calendar via RoleFlow CRM." icon={<BarChart3 size={28}/>} />
+               <OutlineCard num="01" title="DATA INGESTION" detail="WE SYNC YOUR PROGRAM KNOWLEDGE AND FAQS INTO OUR PROPRIETARY NEURAL MODEL." icon={<Search size={28}/>} />
+               <OutlineCard num="02" title="AI DEPLOYMENT" detail="OUR AGENTS TAKE OVER YOUR DMS 24/7, QUALIFYING EVERY LEAD IN YOUR BRAND VOICE." icon={<Cpu size={28}/>} />
+               <OutlineCard num="03" title="AUTO-BOOKING" detail="HIGH-INTENT LEADS ARE AUTOMATICALLY PUSHED TO YOUR CALENDAR VIA ROLEFLOW CRM." icon={<BarChart3 size={28}/>} />
             </div>
          </div>
       </section>
 
-      {/* 7. SURVEY MODAL */}
+      {/* 6. SURVEY MODAL */}
       {step === 2 && (
           <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-xl flex items-center justify-center p-4">
               <div className="max-w-xl w-full bg-white rounded-[2.5rem] p-8 md:p-14 shadow-2xl border-t-[8px] border-blue-600 relative">
@@ -232,22 +220,22 @@ export default function LandingPage() {
                   </button>
                   <div className="space-y-10">
                       <div className="space-y-2">
-                          <p className="text-blue-600 font-bold text-[10px] tracking-widest uppercase">Protocol Step {surveyStep + 1}</p>
+                          <p className="text-blue-600 font-bold text-[10px] tracking-widest uppercase">PROTOCOL STEP {surveyStep + 1}</p>
                           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-none uppercase">{questions[surveyStep].label}</h2>
                       </div>
 
                       {questions[surveyStep].type === "fields" ? (
                           <div className="grid grid-cols-1 gap-5">
-                              <FormInput label="Full Name" name="name" val={formData.name} onChange={(e: any) => setFormData({...formData, name: e.target.value})} placeholder="JOHN DOE" />
-                              <FormInput label="Instagram Handle" name="handle" val={formData.handle} onChange={(e: any) => setFormData({...formData, handle: e.target.value})} placeholder="@YOURBUSINESS" />
-                              <FormInput label="Email Address" name="email" type="email" val={formData.email} onChange={(e: any) => setFormData({...formData, email: e.target.value})} placeholder="JOHN@EMAIL.COM" />
-                              <button onClick={nextStep} className="mt-4 bg-blue-600 text-white py-5 rounded-xl font-bold hover:bg-blue-700 transition-all uppercase tracking-widest shadow-xl shadow-blue-600/20">Continue Application</button>
+                              <FormInput label="FULL NAME" name="name" val={formData.name} onChange={(e: any) => setFormData({...formData, name: e.target.value})} placeholder="JOHN DOE" />
+                              <FormInput label="INSTAGRAM HANDLE" name="handle" val={formData.handle} onChange={(e: any) => setFormData({...formData, handle: e.target.value})} placeholder="@YOURBUSINESS" />
+                              <FormInput label="EMAIL ADDRESS" name="email" type="email" val={formData.email} onChange={(e: any) => setFormData({...formData, email: e.target.value})} placeholder="JOHN@EMAIL.COM" />
+                              <button onClick={nextStep} className="mt-4 bg-blue-600 text-white py-5 rounded-xl font-bold hover:bg-blue-700 transition-all uppercase tracking-[0.2em] shadow-xl shadow-blue-600/20">CONTINUE APPLICATION</button>
                           </div>
                       ) : (
                           <div className="grid grid-cols-1 gap-3">
                               {questions[surveyStep].options?.map((opt) => (
                                   <button key={opt} onClick={() => { setFormData({...formData, [questions[surveyStep].name as string]: opt}); nextStep(); }}
-                                    className="w-full text-left p-6 bg-slate-50 border border-slate-200 rounded-2xl font-bold text-slate-800 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all uppercase text-sm">
+                                    className="w-full text-left p-6 bg-slate-50 border border-slate-200 rounded-2xl font-bold text-slate-800 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all uppercase text-sm tracking-widest">
                                     {opt}
                                   </button>
                               ))}
@@ -258,15 +246,15 @@ export default function LandingPage() {
           </div>
       )}
 
-      {/* 8. OUTCOME OVERLAY */}
+      {/* 7. OUTCOME OVERLAY */}
       {step === 3 && (
           <div className="fixed inset-0 z-[100] bg-[#030712] flex items-center justify-center p-4 overflow-y-auto">
               {isQualified ? (
                   <div className="max-w-5xl w-full h-full flex flex-col items-center py-12 space-y-8">
                       <img src="/logo.png" className="h-16 w-16" alt="Logo" />
                       <div className="text-center space-y-2">
-                        <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none">Application Approved</h2>
-                        <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.4em]">Schedule your strategy call below</p>
+                        <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none">APPLICATION APPROVED</h2>
+                        <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.4em]">SCHEDULE YOUR STRATEGY CALL BELOW</p>
                       </div>
                       <div className="w-full bg-white rounded-[3rem] overflow-hidden shadow-2xl min-h-[700px] border-[12px] border-white/5">
                           <iframe src={CALENDLY_URL} width="100%" height="700" frameBorder="0"></iframe>
@@ -275,20 +263,20 @@ export default function LandingPage() {
               ) : (
                   <div className="max-w-md w-full bg-white rounded-[3rem] p-16 text-center space-y-8">
                         <Lock size={64} className="mx-auto text-slate-200" />
-                        <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight leading-none uppercase">Not A Fit</h2>
-                        <p className="text-slate-500 font-medium leading-relaxed uppercase text-sm">Your current business metrics don't qualify for our AI infrastructure. Please return when you are generating at least $15k/month in revenue.</p>
-                        <button onClick={() => setStep(1)} className="text-blue-600 font-bold uppercase tracking-widest text-sm border-b-2 border-blue-600 pb-1">Return Home</button>
+                        <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight leading-none uppercase">NOT A FIT</h2>
+                        <p className="text-slate-500 font-bold uppercase text-[10px] tracking-widest leading-relaxed">YOUR CURRENT BUSINESS METRICS DON'T QUALIFY FOR OUR AI INFRASTRUCTURE. PLEASE RETURN WHEN YOU ARE GENERATING AT LEAST $15K/MONTH IN REVENUE.</p>
+                        <button onClick={() => setStep(1)} className="text-blue-600 font-bold uppercase tracking-widest text-xs border-b-2 border-blue-600 pb-1">RETURN HOME</button>
                   </div>
               )}
           </div>
       )}
 
-      {/* 9. FOOTER */}
+      {/* 8. FOOTER */}
       <footer className="bg-black py-20 px-6 border-t border-white/5 text-center">
           <div className="flex flex-col items-center gap-8">
             <div className="flex items-center gap-3">
               <img src="/logo.png" alt="Logo" className="h-8 w-8" />
-              <span className="font-bold text-xl uppercase tracking-tighter">RoleFlow</span>
+              <span className="font-bold text-xl uppercase tracking-tighter uppercase">ROLEFLOW</span>
             </div>
             <p className="text-[10px] font-bold text-slate-600 tracking-[0.4em] uppercase">© 2026 ROLEFLOW AGENCY • ALL RIGHTS RESERVED</p>
           </div>
@@ -301,7 +289,7 @@ export default function LandingPage() {
 function ChatBubble({ role, text }: { role: 'ai' | 'lead', text: string }) {
     return (
         <div className={`flex ${role === 'lead' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`p-5 rounded-2xl text-[13px] font-bold max-w-[85%] uppercase tracking-tight ${
+            <div className={`p-5 rounded-2xl text-[13px] font-bold max-w-[85%] uppercase tracking-tighter ${
                 role === 'ai' ? 'bg-blue-600/10 border border-blue-500/20 text-blue-100 rounded-tl-none shadow-xl' : 'bg-blue-600 text-white rounded-tr-none shadow-lg'
             }`}>
                 {text}
@@ -312,10 +300,10 @@ function ChatBubble({ role, text }: { role: 'ai' | 'lead', text: string }) {
 
 function FormInput({ label, name, val, onChange, type = "text", placeholder }: any) {
     return (
-        <div className="space-y-2">
+        <div className="space-y-2 text-left">
             <label className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1">{label}</label>
             <input name={name} value={val} type={type} required onChange={onChange} 
-            className="w-full bg-slate-50 border border-slate-200 p-5 rounded-2xl text-slate-900 font-bold outline-none focus:ring-2 focus:ring-blue-600 transition-all placeholder:text-slate-300 uppercase" placeholder={placeholder} />
+            className="w-full bg-slate-50 border border-slate-200 p-5 rounded-2xl text-slate-900 font-bold outline-none focus:ring-2 focus:ring-blue-600 transition-all placeholder:text-slate-300 uppercase text-xs" placeholder={placeholder} />
         </div>
     )
 }
@@ -324,8 +312,8 @@ function OutlineCard({ num, title, detail, icon }: any) {
     return (
         <div className="bg-white/[0.02] border border-white/10 p-12 rounded-[2.5rem] hover:bg-blue-600/10 hover:border-blue-600/50 transition-all relative group overflow-hidden">
             <div className="mb-8 h-16 w-16 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">{icon}</div>
-            <h4 className="font-extrabold text-2xl text-white mb-4 uppercase tracking-tight leading-none">{title}</h4>
-            <p className="text-sm font-medium text-slate-500 leading-relaxed uppercase tracking-tight text-xs">{detail}</p>
+            <h4 className="font-extrabold text-2xl text-white mb-4 uppercase tracking-tight leading-none uppercase">{title}</h4>
+            <p className="text-[10px] font-bold text-slate-500 leading-relaxed uppercase tracking-widest">{detail}</p>
             <span className="text-9xl font-black text-white/5 absolute -bottom-6 -right-4 leading-none select-none italic-none">{num}</span>
         </div>
     )
