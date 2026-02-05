@@ -1,42 +1,34 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-// Initializing Inter - The industry standard for high-status, clinical UI.
-// We use weights 400 (regular), 700 (bold), and 900 (black) for geometric hierarchy.
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '700', '900'],
-  variable: '--font-inter',
-})
+const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: 'ROLEFLOW | Scalable AI Sales Infrastructure',
-  description: 'Deploy 24/7 AI Sales Workforce to eliminate lead decay and maximize revenue attribution.',
-  viewport: 'width=device-width, initial-scale=1',
+export const metadata: Metadata = {
+  title: "RoleFlow | Scale Your IG Client Acquisition with AI",
+  description: "Stop losing $10k+/month because of slow Instagram DMs. Automate your lead qualification and booking with our high-ticket AI Setting System.",
   icons: {
-    icon: '/icon.png', // Uses your logo for the browser tab
+    icon: "/favicon.ico", // Make sure to add a favicon later
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
-      <head>
-        {/* Anti-Cursive Enforcement & Mobile Optimization */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" /> 
-      </head>
-      <body className={`${inter.className} bg-[#020617] text-white antialiased`}>
-        {/* 
-           This wrapper ensures that the layout is consistent 
-           across the Landing Page and the Gated Outcome pages.
-        */}
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${inter.className} bg-[#030712] text-white antialiased overflow-x-hidden`}
+      >
+        {/* Subtle Background Glow for that 'Premium' feel */}
+        <div className="fixed -z-10 h-full w-full">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] opacity-20 blur-[120px] bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" />
+        </div>
+        
         {children}
       </body>
     </html>
-  )
+  );
 }
