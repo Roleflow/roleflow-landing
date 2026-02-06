@@ -200,64 +200,56 @@ export default function LandingPage() {
          </div>
       </section>
 
-      {/* 6. REVENUE GAP CALCULATOR (PROFESSIONAL VERSION) */}
-      <section className="py-40 bg-[#020617] border-y border-white/5 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-24 space-y-4">
-            <p className="text-blue-500 font-bold tracking-[0.5em] text-[10px] uppercase">The Mathematics of AI Acquisition</p>
-            <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter uppercase leading-none">THE REVENUE GAP</h2>
+          {/* 6. REFINED REVENUE GAP CALCULATOR (COMPACT & TYPABLE) */}
+      <section className="py-24 bg-[#020617] border-y border-white/5">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16 space-y-4">
+            <p className="text-blue-500 font-bold tracking-[0.4em] text-[10px]">REVENUE AUDIT</p>
+            <h2 className="text-4xl md:text-7xl font-black tracking-tighter">THE REVENUE GAP</h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            {/* INPUT PANEL - 5 COLS */}
-            <div className="lg:col-span-5 space-y-4">
-              <CalcInput icon={<MessageSquare size={18}/>} label="Monthly Inbound DMs" value={calc.monthlyDms} min={50} max={3000} step={50} onChange={(v: number) => setCalc({...calc, monthlyDms: v})} />
-              <CalcInput icon={<MousePointer2 size={18}/>} label="Current Booking Rate" value={calc.bookingRate} min={1} max={30} step={1} unit="%" onChange={(v: number) => setCalc({...calc, bookingRate: v})} />
-              <CalcInput icon={<Target size={18}/>} label="Sales Closing Rate" value={calc.closeRate} min={5} max={50} step={1} unit="%" onChange={(v: number) => setCalc({...calc, closeRate: v})} />
-              <CalcInput icon={<DollarSign size={18}/>} label="Average Offer Price" value={calc.offerPrice} min={1000} max={30000} step={500} unit="$" onChange={(v: number) => setCalc({...calc, offerPrice: v})} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            {/* INPUT PANEL */}
+            <div className="lg:col-span-5 space-y-3">
+              <CalcInput icon={<MessageSquare size={16}/>} label="Monthly Inbound DMs" value={calc.monthlyDms} min={0} max={10000} onChange={(v: number) => setCalc({...calc, monthlyDms: v})} />
+              <CalcInput icon={<MousePointer2 size={16}/>} label="Current Booking Rate" value={calc.bookingRate} min={0} max={100} unit="%" onChange={(v: number) => setCalc({...calc, bookingRate: v})} />
+              <CalcInput icon={<Target size={16}/>} label="Sales Closing Rate" value={calc.closeRate} min={0} max={100} unit="%" onChange={(v: number) => setCalc({...calc, closeRate: v})} />
+              <CalcInput icon={<DollarSign size={16}/>} label="Average Offer Price" value={calc.offerPrice} min={0} max={100000} unit="$" onChange={(v: number) => setCalc({...calc, offerPrice: v})} />
             </div>
 
-            {/* RESULTS PANEL - 7 COLS */}
-            <div className="lg:col-span-7 bg-blue-600 rounded-[3.5rem] p-10 md:p-16 shadow-[0_0_100px_rgba(37,99,235,0.2)] flex flex-col justify-between relative overflow-hidden group">
-                <div className="relative z-10 space-y-12">
-                    <div className="flex justify-between items-start">
-                        <div className="space-y-1">
-                            <p className="text-[10px] font-bold tracking-[0.4em] opacity-80 uppercase">Hidden Monthly Leakage</p>
-                            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">
-                                +${Math.round(monthlyGap).toLocaleString()}
-                            </h3>
+            {/* RESULTS PANEL */}
+            <div className="lg:col-span-7 bg-blue-600 rounded-[2.5rem] p-8 md:p-12 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+                <div className="relative z-10 space-y-10">
+                    <div className="space-y-1">
+                        <p className="text-[10px] font-bold tracking-[0.3em] opacity-80">MONTHLY REVENUE LEAKAGE</p>
+                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white">
+                            +${Math.round(monthlyGap).toLocaleString()}
+                        </h3>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="bg-black/10 backdrop-blur-md p-6 rounded-3xl border border-white/5">
+                            <p className="text-[9px] font-bold opacity-60 tracking-widest">DAILY RECOVERED</p>
+                            <p className="text-2xl font-black">${Math.round(dailyGap).toLocaleString()}</p>
                         </div>
-                        <div className="h-14 w-14 rounded-2xl bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/20">
-                            <Zap className="text-white fill-white animate-pulse" size={28} />
+                        <div className="bg-black/10 backdrop-blur-md p-6 rounded-3xl border border-white/5">
+                            <p className="text-[9px] font-bold opacity-60 tracking-widest">YEARLY PROJECTION</p>
+                            <p className="text-2xl font-black">${Math.round(yearlyGap).toLocaleString()}</p>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6">
-                        <div className="bg-black/10 backdrop-blur-md p-8 rounded-3xl border border-white/5 space-y-2">
-                            <p className="text-[10px] font-bold opacity-60 tracking-widest uppercase">Daily Recovered</p>
-                            <p className="text-3xl font-black tracking-tighter uppercase">${Math.round(dailyGap).toLocaleString()}</p>
+                    <div className="pt-6 border-t border-white/10 flex justify-between gap-4">
+                        <div>
+                            <p className="text-[9px] font-bold opacity-60 uppercase">Current Monthly Output</p>
+                            <p className="text-xl font-bold">${Math.round(currentMonthlyRev).toLocaleString()}</p>
                         </div>
-                        <div className="bg-black/10 backdrop-blur-md p-8 rounded-3xl border border-white/5 space-y-2">
-                            <p className="text-[10px] font-bold opacity-60 tracking-widest uppercase">Yearly Projection</p>
-                            <p className="text-3xl font-black tracking-tighter uppercase">${Math.round(yearlyGap).toLocaleString()}</p>
-                        </div>
-                    </div>
-
-                    <div className="pt-10 border-t border-white/20 flex flex-col md:flex-row justify-between gap-8">
-                        <div className="space-y-1">
-                            <p className="text-[10px] font-bold opacity-60 tracking-widest uppercase">Current Monthly Output</p>
-                            <p className="text-2xl font-black text-white/90 tracking-tighter uppercase">${Math.round(dailyCurrentRev * 30).toLocaleString()}</p>
-                        </div>
-                        <div className="space-y-1 md:text-right">
-                            <p className="text-[10px] font-bold opacity-100 tracking-widest uppercase text-blue-100">Optimized Potential</p>
-                            <p className="text-2xl font-black text-white tracking-tighter uppercase underline decoration-2 underline-offset-4">${Math.round(dailyAiRev * 30).toLocaleString()}</p>
+                        <div className="text-right">
+                            <p className="text-[9px] font-bold text-blue-100 uppercase">Optimized Potential</p>
+                            <p className="text-xl font-bold text-white underline decoration-2 underline-offset-4">${Math.round(optimizedMonthlyRev).toLocaleString()}</p>
                         </div>
                     </div>
                 </div>
-                
-                {/* Background Decor */}
-                <BarChart3 className="absolute -bottom-10 -right-10 w-96 h-96 opacity-[0.03] text-white rotate-[-12deg]" />
-                <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+                <BarChart3 className="absolute -bottom-10 -right-10 w-64 h-64 opacity-5 rotate-[-15deg]" />
             </div>
           </div>
         </div>
