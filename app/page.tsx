@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { 
   ArrowRight, CheckCircle2, Zap, Instagram, 
   Play, X, Cpu, Search, BarChart3, Lock, MessageSquare, Star, TrendingUp, 
-  Calendar, Clock, DollarSign, Target, MousePointer2
+  DollarSign, Target, MousePointer2, ArrowUpRight, Calculator, Calendar
 } from "lucide-react";
 
 export default function LandingPage() {
@@ -14,7 +14,7 @@ export default function LandingPage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // --- REVENUE CALCULATOR STATE ---
+  // --- REFINED CALCULATOR STATE ---
   const [calc, setCalc] = useState({ 
     monthlyDms: 450, 
     bookingRate: 5, 
@@ -22,21 +22,14 @@ export default function LandingPage() {
     offerPrice: 5000 
   });
 
-  // LOGIC
-  const dailyDms = calc.monthlyDms / 30;
-  const aiBookingBoost = 10; 
-
-  const dailyCurrentSales = dailyDms * (calc.bookingRate / 100) * (calc.closeRate / 100);
-  const dailyAiSales = dailyDms * ((calc.bookingRate + aiBookingBoost) / 100) * (calc.closeRate / 100);
+  // Calculation Logic (AI speed typically increases booking rate by 10% absolute)
+  const aiBoost = 10;
+  const currentMonthlyRev = calc.monthlyDms * (calc.bookingRate / 100) * (calc.closeRate / 100) * calc.offerPrice;
+  const optimizedMonthlyRev = calc.monthlyDms * ((calc.bookingRate + aiBoost) / 100) * (calc.closeRate / 100) * calc.offerPrice;
   
-  const dailyCurrentRev = dailyCurrentSales * calc.offerPrice;
-  const dailyAiRev = dailyAiSales * calc.offerPrice;
-
-  const dailyGap = dailyAiRev - dailyCurrentRev;
-  const monthlyGap = dailyGap * 30;
+  const monthlyGap = optimizedMonthlyRev - currentMonthlyRev;
+  const dailyGap = monthlyGap / 30;
   const yearlyGap = monthlyGap * 12;
-
-  // ... (Keep the same formData, testimonials, and questions from previous code)
 
   const [formData, setFormData] = useState({
     name: '', handle: '', email: '', phone: '',
@@ -112,63 +105,61 @@ export default function LandingPage() {
           <img src="/logo.png" alt="RoleFlow Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
           <span className="font-bold text-2xl tracking-tighter">ROLE<span className="text-blue-500">FLOW</span></span>
         </div>
-        <button onClick={() => setStep(2)} className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-xs font-bold tracking-widest transition-all shadow-lg shadow-blue-600/20 uppercase tracking-[0.1em]">
+        <button onClick={() => setStep(2)} className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-xs font-bold tracking-widest transition-all shadow-lg shadow-blue-600/20">
           GET STARTED
         </button>
       </nav>
 
       {/* 3. HERO SECTION */}
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8 animate-fadeIn">
+        <div className="space-y-10 animate-fadeIn">
            <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full">
              <div className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse"></div>
-             <span className="text-[10px] font-bold tracking-widest text-blue-400 uppercase">System Status: Active</span>
+             <span className="text-[10px] font-bold tracking-widest text-blue-400">SYSTEM STATUS: ACTIVE</span>
            </div>
            
-           <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-             Stop Losing <span className="text-blue-500 italic">$10k+/Month</span><br/>
-             To Slow IG DMs.
+           <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-[0.85]">
+             STOP LOSING <br/>
+             <span className="text-blue-600">$10K+/MONTH</span> <br/>
+             TO SLOW IG DMS.
            </h1>
 
-           <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
-             RoleFlow installs a proprietary AI sales workforce that qualifies leads and books high-ticket meetings in &lt; 60 seconds. <span className="text-white border-b-2 border-blue-500">24/7 coverage. 0% headcount.</span>
+           <p className="text-slate-400 text-lg md:text-xl font-bold leading-relaxed max-w-xl tracking-widest border-l-4 border-blue-600 pl-8">
+             ROLEFLOW INSTALLS A PROPRIETARY AI SALES WORKFORCE THAT QUALIFIES LEADS AND BOOKS HIGH-TICKET MEETINGS IN LESS THAN 60 SECONDS. <span className="text-white">24/7 COVERAGE. ZERO HEADCOUNT.</span>
            </p>
 
-           <div className="pt-4 flex flex-col sm:flex-row gap-4">
-              <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 group">
-                Scale My Outreach <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-           </div>
+           <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-12 py-6 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-blue-500 shadow-2xl shadow-blue-600/20 tracking-[0.2em]">
+                SCALE MY ACQUISITION <ArrowRight size={24} />
+           </button>
         </div>
 
         {/* INTERACTIVE PREVIEW */}
         <div className="relative w-full max-w-lg lg:ml-auto">
-            <div className="absolute -inset-4 bg-blue-500/10 rounded-[3rem] blur-3xl"></div>
-            <div className="relative bg-[#0F172A] border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[500px]">
+            <div className="absolute -inset-4 bg-blue-500/10 rounded-[3rem] blur-3xl opacity-50"></div>
+            <div className="relative bg-[#0A0F1E] border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[500px]">
                 <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
                     <div className="flex items-center gap-3">
                         <img src="/logo.png" className="h-6 w-6 opacity-80" alt="Icon" />
-                        <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">AI Setting Agent</p>
+                        <p className="text-[10px] font-bold tracking-widest text-slate-400">AI SETTING AGENT</p>
                     </div>
-                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold uppercase border border-emerald-500/20">Qualified</div>
+                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold border border-emerald-500/20 tracking-[0.2em]">QUALIFIED</div>
                 </div>
-                
                 <div className="flex-1 p-6 space-y-6 overflow-y-auto">
-                    <ChatBubble role="lead" text="Hey! I'm interested in the program. How much is it?" />
-                    <ChatBubble role="ai" text="I'd love to help with that! To see if we're a fit, are you currently doing more than $10k/month in your business?" />
-                    <ChatBubble role="lead" text="Yeah, we just hit $25k last month." />
-                    <ChatBubble role="ai" text="Amazing. You're a perfect candidate. I have a slot open for a Strategy Call tomorrow at 2pm. Want it?" />
+                    <ChatBubble role="lead" text="HEY! I'M INTERESTED IN THE PROGRAM. HOW MUCH IS IT?" />
+                    <ChatBubble role="ai" text="I'D LOVE TO HELP WITH THAT! TO SEE IF WE'RE A FIT, ARE YOU CURRENTLY DOING MORE THAN $10K/MONTH IN YOUR BUSINESS?" />
+                    <ChatBubble role="lead" text="YEAH, WE JUST HIT $25K LAST MONTH." />
+                    <ChatBubble role="ai" text="AMAZING. YOU'RE A PERFECT CANDIDATE. I HAVE A SLOT OPEN FOR A STRATEGY CALL TOMORROW AT 2PM. WANT IT?" />
                 </div>
             </div>
         </div>
       </section>
 
       {/* 4. VSL SECTION */}
-      <section className="bg-white py-24 rounded-t-[4rem] md:rounded-t-[6rem] shadow-2xl relative z-20">
-        <div className="max-w-5xl mx-auto px-4 md:px-0 text-center">
-            <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px] mb-4 uppercase">THE PROOF OF CONCEPT</p>
-            <h2 className="text-5xl md:text-[5rem] font-black text-slate-950 tracking-tighter uppercase mb-8">THE BREAKDOWN</h2>
-            <div className="relative aspect-video bg-slate-900 rounded-[2rem] border-8 border-slate-100 shadow-2xl overflow-hidden cursor-pointer group mb-10 mx-auto max-w-4xl" onClick={handleTogglePlay}>
+      <section className="bg-white py-24 rounded-t-[4rem] md:rounded-t-[6rem] shadow-2xl relative z-20 text-slate-950">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+            <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px] mb-4">THE PROOF OF CONCEPT</p>
+            <h2 className="text-5xl md:text-[5rem] font-black tracking-tighter mb-8">THE BREAKDOWN</h2>
+            <div className="relative aspect-video bg-slate-900 rounded-[2.5rem] border-8 border-slate-100 shadow-2xl overflow-hidden cursor-pointer group mb-10 mx-auto max-w-4xl" onClick={handleTogglePlay}>
                 <video ref={videoRef} playsInline className="w-full h-full object-cover" src={VSL_VIDEO_URL} onEnded={() => setIsPlaying(false)} />
                 {!isPlaying && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[1px]">
@@ -178,7 +169,7 @@ export default function LandingPage() {
                     </div>
                 )}
             </div>
-            <button onClick={() => setStep(2)} className="bg-slate-950 text-white px-16 py-8 rounded-3xl font-black text-xl hover:bg-blue-600 transition-all flex items-center gap-6 mx-auto uppercase tracking-widest shadow-2xl">
+            <button onClick={() => setStep(2)} className="bg-slate-950 text-white px-16 py-8 rounded-3xl font-black text-xl hover:bg-blue-600 transition-all flex items-center gap-6 mx-auto tracking-widest shadow-2xl">
                 APPLY TO PARTNER <ArrowRight size={28} />
             </button>
         </div>
@@ -186,10 +177,10 @@ export default function LandingPage() {
 
       {/* 5. SYSTEM OUTLINE SECTION */}
       <section className="py-32 bg-[#030712] border-t border-white/5 relative z-10">
-         <div className="max-w-7xl mx-auto px-6 text-center uppercase">
+         <div className="max-w-7xl mx-auto px-6 text-center">
             <div className="mb-24 space-y-4">
                 <p className="text-blue-500 font-bold tracking-[0.4em] text-[10px]">PROPRIETARY INFRASTRUCTURE</p>
-                <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase">THE SYSTEM OUTLINE</h2>
+                <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">THE SYSTEM OUTLINE</h2>
                 <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
@@ -200,71 +191,71 @@ export default function LandingPage() {
          </div>
       </section>
 
-          {/* 6. REFINED REVENUE GAP CALCULATOR (COMPACT & TYPABLE) */}
-      <section className="py-24 bg-[#020617] border-y border-white/5">
+      {/* 6. REFINED REVENUE GAP CALCULATOR (COMPACT & TYPABLE) */}
+      <section className="py-32 bg-[#020617] border-y border-white/5 relative">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16 space-y-4">
-            <p className="text-blue-500 font-bold tracking-[0.4em] text-[10px]">REVENUE AUDIT</p>
-            <h2 className="text-4xl md:text-7xl font-black tracking-tighter">THE REVENUE GAP</h2>
+          <div className="text-center mb-20 space-y-4">
+            <p className="text-blue-500 font-bold tracking-[0.5em] text-[10px]">REVENUE AUDIT</p>
+            <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-none">THE REVENUE GAP</h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* INPUT PANEL */}
             <div className="lg:col-span-5 space-y-3">
-              <CalcInput icon={<MessageSquare size={16}/>} label="Monthly Inbound DMs" value={calc.monthlyDms} min={0} max={10000} onChange={(v: number) => setCalc({...calc, monthlyDms: v})} />
-              <CalcInput icon={<MousePointer2 size={16}/>} label="Current Booking Rate" value={calc.bookingRate} min={0} max={100} unit="%" onChange={(v: number) => setCalc({...calc, bookingRate: v})} />
-              <CalcInput icon={<Target size={16}/>} label="Sales Closing Rate" value={calc.closeRate} min={0} max={100} unit="%" onChange={(v: number) => setCalc({...calc, closeRate: v})} />
-              <CalcInput icon={<DollarSign size={16}/>} label="Average Offer Price" value={calc.offerPrice} min={0} max={100000} unit="$" onChange={(v: number) => setCalc({...calc, offerPrice: v})} />
+              <CalcInput icon={<MessageSquare size={18}/>} label="Monthly Inbound DMs" value={calc.monthlyDms} onChange={(v: number) => setCalc({...calc, monthlyDms: v})} />
+              <CalcInput icon={<MousePointer2 size={18}/>} label="Current Booking Rate" value={calc.bookingRate} unit="%" onChange={(v: number) => setCalc({...calc, bookingRate: v})} />
+              <CalcInput icon={<Target size={18}/>} label="Sales Closing Rate" value={calc.closeRate} unit="%" onChange={(v: number) => setCalc({...calc, closeRate: v})} />
+              <CalcInput icon={<DollarSign size={18}/>} label="Average Offer Price" value={calc.offerPrice} unit="$" onChange={(v: number) => setCalc({...calc, offerPrice: v})} />
             </div>
 
             {/* RESULTS PANEL */}
-            <div className="lg:col-span-7 bg-blue-600 rounded-[2.5rem] p-8 md:p-12 shadow-2xl flex flex-col justify-between relative overflow-hidden">
-                <div className="relative z-10 space-y-10">
+            <div className="lg:col-span-7 bg-blue-600 rounded-[3.5rem] p-10 md:p-14 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+                <div className="relative z-10 space-y-12">
                     <div className="space-y-1">
-                        <p className="text-[10px] font-bold tracking-[0.3em] opacity-80">MONTHLY REVENUE LEAKAGE</p>
-                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white">
+                        <p className="text-[10px] font-bold tracking-[0.4em] opacity-80">HIDDEN MONTHLY LEAKAGE</p>
+                        <h3 className="text-6xl md:text-9xl font-black tracking-tighter text-white">
                             +${Math.round(monthlyGap).toLocaleString()}
                         </h3>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-black/10 backdrop-blur-md p-6 rounded-3xl border border-white/5">
-                            <p className="text-[9px] font-bold opacity-60 tracking-widest">DAILY RECOVERED</p>
-                            <p className="text-2xl font-black">${Math.round(dailyGap).toLocaleString()}</p>
+                    <div className="grid grid-cols-2 gap-6">
+                        <div className="bg-black/10 backdrop-blur-md p-8 rounded-3xl border border-white/5">
+                            <p className="text-[10px] font-bold opacity-60 tracking-widest">DAILY RECOVERED</p>
+                            <p className="text-3xl font-black tracking-tighter uppercase">${Math.round(dailyGap).toLocaleString()}</p>
                         </div>
-                        <div className="bg-black/10 backdrop-blur-md p-6 rounded-3xl border border-white/5">
-                            <p className="text-[9px] font-bold opacity-60 tracking-widest">YEARLY PROJECTION</p>
-                            <p className="text-2xl font-black">${Math.round(yearlyGap).toLocaleString()}</p>
+                        <div className="bg-black/10 backdrop-blur-md p-8 rounded-3xl border border-white/5">
+                            <p className="text-[10px] font-bold opacity-60 tracking-widest">YEARLY PROJECTION</p>
+                            <p className="text-3xl font-black tracking-tighter uppercase">${Math.round(yearlyGap).toLocaleString()}</p>
                         </div>
                     </div>
 
-                    <div className="pt-6 border-t border-white/10 flex justify-between gap-4">
+                    <div className="pt-8 border-t border-white/10 flex justify-between gap-4">
                         <div>
-                            <p className="text-[9px] font-bold opacity-60 uppercase">Current Monthly Output</p>
-                            <p className="text-xl font-bold">${Math.round(currentMonthlyRev).toLocaleString()}</p>
+                            <p className="text-[10px] font-bold opacity-60 uppercase tracking-widest">Current Monthly Output</p>
+                            <p className="text-2xl font-black tracking-tighter uppercase">${Math.round(currentMonthlyRev).toLocaleString()}</p>
                         </div>
                         <div className="text-right">
-                            <p className="text-[9px] font-bold text-blue-100 uppercase">Optimized Potential</p>
-                            <p className="text-xl font-bold text-white underline decoration-2 underline-offset-4">${Math.round(optimizedMonthlyRev).toLocaleString()}</p>
+                            <p className="text-[10px] font-bold text-blue-100 uppercase tracking-widest">Optimized Potential</p>
+                            <p className="text-2xl font-black text-white underline decoration-2 underline-offset-4 tracking-tighter uppercase">${Math.round(optimizedMonthlyRev).toLocaleString()}</p>
                         </div>
                     </div>
                 </div>
-                <BarChart3 className="absolute -bottom-10 -right-10 w-64 h-64 opacity-5 rotate-[-15deg]" />
+                <BarChart3 className="absolute -bottom-10 -right-10 w-96 h-96 opacity-5 rotate-[-15deg] text-white" />
             </div>
           </div>
         </div>
       </section>
 
       {/* 7. PARTNER RESULTS */}
-      <section className="py-32 bg-white uppercase">
+      <section className="py-32 bg-white text-slate-950 relative z-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
-            <div className="mb-20 space-y-4 text-slate-950">
+            <div className="mb-20 space-y-4">
                 <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px]">PARTNER RESULTS</p>
                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">TRUSTED BY FOUNDERS</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               {testimonials.map((t, i) => (
-                <div key={i} className="bg-white border border-slate-200 p-10 rounded-[3rem] space-y-8 flex flex-col justify-between hover:shadow-xl transition-all border-b-8 border-blue-600 shadow-sm">
+                <div key={i} className="bg-slate-50 border border-slate-200 p-10 rounded-[3rem] space-y-8 flex flex-col justify-between hover:shadow-xl transition-all border-b-8 border-blue-600 shadow-sm">
                   <div className="space-y-6">
                     <div className="flex justify-between items-start">
                         <img src={t.logo} alt={t.company} className="h-12 w-auto object-contain" />
@@ -272,14 +263,14 @@ export default function LandingPage() {
                             {[...Array(5)].map((_, star) => <Star key={star} size={14} fill="currentColor" />)}
                         </div>
                     </div>
-                    <p className="text-slate-700 font-bold leading-relaxed text-[13px] tracking-tight uppercase border-l-2 border-blue-600 pl-4">
+                    <p className="text-slate-700 font-bold leading-relaxed text-[13px] tracking-tight border-l-2 border-blue-600 pl-4">
                         "{t.text}"
                     </p>
                   </div>
                   <div className="pt-8 border-t border-slate-200 flex justify-between items-end">
                     <div>
-                      <p className="font-black text-slate-950 text-sm tracking-tighter uppercase mb-1">{t.company}</p>
-                      <p className="text-[9px] text-slate-500 font-bold tracking-[0.2em] uppercase leading-none">{t.industry}</p>
+                      <p className="font-black text-sm tracking-tighter leading-none mb-2">{t.company}</p>
+                      <p className="text-[9px] text-slate-500 font-bold tracking-[0.2em] uppercase">{t.industry}</p>
                     </div>
                     <p className="text-blue-600 font-black text-sm uppercase tracking-tighter whitespace-nowrap">{t.result}</p>
                   </div>
@@ -290,10 +281,10 @@ export default function LandingPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-black py-24 px-6 border-t border-white/5 text-center uppercase tracking-widest">
+      <footer className="bg-black py-24 px-6 border-t border-white/5 text-center tracking-widest">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
             <div className="flex items-center gap-4">
-              <img src="/logo.png" alt="RoleFlow Logo" className="h-10 w-10" />
+              <img src="/logo.png" alt="Logo" className="h-10 w-10" />
               <span className="font-black text-2xl uppercase tracking-tighter">ROLEFLOW</span>
             </div>
             <p className="text-[10px] font-bold text-slate-800 tracking-[0.5em] uppercase">© 2026 ROLEFLOW AGENCY • ALL RIGHTS RESERVED</p>
@@ -313,11 +304,11 @@ export default function LandingPage() {
                           <h2 className="text-4xl font-black tracking-tighter uppercase leading-none">{questions[surveyStep].label}</h2>
                       </div>
                       {questions[surveyStep].type === "fields" ? (
-                          <div className="grid grid-cols-1 gap-6 uppercase">
+                          <div className="grid grid-cols-1 gap-6">
                               <FormInput label="FULL NAME" name="name" val={formData.name} onChange={(e: any) => setFormData({...formData, name: e.target.value})} placeholder="JOHN DOE" />
                               <FormInput label="INSTAGRAM HANDLE" name="handle" val={formData.handle} onChange={(e: any) => setFormData({...formData, handle: e.target.value})} placeholder="@YOURBUSINESS" />
                               <FormInput label="EMAIL ADDRESS" name="email" type="email" val={formData.email} onChange={(e: any) => setFormData({...formData, email: e.target.value})} placeholder="JOHN@EMAIL.COM" />
-                              <button onClick={nextStep} className="mt-6 bg-blue-600 text-white py-6 rounded-2xl font-black tracking-widest hover:bg-blue-700 uppercase">CONTINUE APPLICATION</button>
+                              <button onClick={nextStep} className="mt-6 bg-blue-600 text-white py-6 rounded-2xl font-black tracking-widest hover:bg-blue-700 shadow-xl shadow-blue-600/20 uppercase">CONTINUE APPLICATION</button>
                           </div>
                       ) : (
                           <div className="grid grid-cols-1 gap-3">
@@ -340,7 +331,7 @@ export default function LandingPage() {
                   <div className="max-w-5xl w-full h-full flex flex-col items-center py-12 space-y-10">
                       <img src="/logo.png" className="h-16 w-16" alt="Logo" />
                       <div className="text-center space-y-3 uppercase">
-                        <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">APPLICATION APPROVED</h2>
+                        <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">APPLICATION APPROVED</h2>
                         <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.5em]">SCHEDULE YOUR STRATEGY CALL BELOW</p>
                       </div>
                       <div className="w-full bg-white rounded-[3rem] overflow-hidden shadow-2xl min-h-[750px] border-[16px] border-white/5">
@@ -348,7 +339,7 @@ export default function LandingPage() {
                       </div>
                   </div>
               ) : (
-                  <div className="max-w-lg w-full bg-white rounded-[4rem] p-20 text-center space-y-10 border-t-[12px] border-blue-600 text-slate-950 uppercase">
+                  <div className="max-w-lg w-full bg-white rounded-[4rem] p-20 text-center space-y-10 border-t-[12px] border-blue-600 text-slate-950">
                         <Lock size={80} className="mx-auto text-slate-200" />
                         <h2 className="text-5xl font-black tracking-tighter leading-none uppercase">NOT A FIT</h2>
                         <p className="text-slate-500 font-bold text-xs tracking-widest leading-relaxed uppercase">YOUR CURRENT REVENUE METRICS DO NOT QUALIFY FOR OUR AI INFRASTRUCTURE. PLEASE RETURN WHEN YOU ARE GENERATING AT LEAST $15K/MONTH.</p>
@@ -361,23 +352,27 @@ export default function LandingPage() {
   );
 }
 
-// --- UI ATOMS ---
+// --- ATOMIC UI COMPONENTS ---
 
-function CalcInput({ label, icon, value, min, max, step, onChange, unit = "" }: any) {
-    return (
-        <div className="bg-white/[0.03] border border-white/10 p-6 md:p-8 rounded-[2.5rem] space-y-6 hover:bg-white/5 transition-all group">
-            <div className="flex justify-between items-center uppercase">
-                <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-lg bg-blue-600/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        {icon}
-                    </div>
-                    <p className="text-[10px] font-bold text-slate-400 tracking-[0.2em]">{label}</p>
-                </div>
-                <p className="text-2xl font-black text-white tracking-tighter">{unit === "$" ? "$" : ""}{value.toLocaleString()}{unit === "%" ? "%" : ""}</p>
-            </div>
-            <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseInt(e.target.value))} className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-600" />
-        </div>
-    )
+function CalcInput({ label, icon, value, onChange, unit = "" }: any) {
+  return (
+    <div className="bg-white/5 border border-white/10 p-5 rounded-[1.8rem] flex items-center justify-between group focus-within:border-blue-500/50 transition-all hover:bg-white/10">
+      <div className="flex items-center gap-4">
+        <div className="h-10 w-10 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-500">{icon}</div>
+        <p className="text-[10px] font-bold text-slate-400 tracking-widest uppercase">{label}</p>
+      </div>
+      <div className="flex items-center gap-1 bg-black/40 px-5 py-3 rounded-2xl border border-white/5 focus-within:border-blue-500/50 transition-all shadow-inner">
+        <span className="text-blue-500 font-black text-sm">{unit === "$" ? "$" : ""}</span>
+        <input 
+          type="number" 
+          value={value} 
+          onChange={(e) => onChange(Number(e.target.value))} 
+          className="bg-transparent text-right w-20 font-black text-white focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-base"
+        />
+        <span className="text-slate-500 font-black text-xs">{unit === "%" ? "%" : ""}</span>
+      </div>
+    </div>
+  );
 }
 
 function ChatBubble({ role, text }: { role: 'ai' | 'lead', text: string }) {
