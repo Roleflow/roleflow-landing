@@ -156,8 +156,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 4. VSL SECTION */}
-      <section className="bg-white py-24 rounded-t-[4rem] md:rounded-t-[6rem] shadow-2xl relative z-20 text-slate-950">
+      {/* 4. VSL SECTION (TIGHTENED & IMPACTFUL) */}
+      <section className="bg-white py-20 rounded-t-[4rem] md:rounded-t-[6rem] shadow-2xl relative z-20 text-slate-950">
         <div className="max-w-5xl mx-auto px-6 text-center">
             <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px] mb-4">THE PROOF OF CONCEPT</p>
             <h2 className="text-5xl md:text-[5rem] font-black tracking-tighter mb-8">THE BREAKDOWN</h2>
@@ -171,7 +171,7 @@ export default function LandingPage() {
                     </div>
                 )}
             </div>
-            <button onClick={() => setStep(2)} className="bg-slate-950 text-white px-16 py-8 rounded-3xl font-black text-xl hover:bg-blue-600 transition-all flex items-center gap-6 mx-auto tracking-widest shadow-2xl">
+            <button onClick={() => setStep(2)} className="bg-slate-950 text-white px-16 py-8 rounded-3xl font-black text-xl hover:bg-blue-600 transition-all flex items-center gap-6 mx-auto uppercase tracking-widest shadow-2xl">
                 APPLY TO PARTNER <ArrowRight size={28} />
             </button>
         </div>
@@ -193,16 +193,16 @@ export default function LandingPage() {
          </div>
       </section>
 
-      {/* 6. REFINED REVENUE GAP CALCULATOR (COMPACT & TYPABLE) */}
+      {/* 6. IMPROVED REVENUE GAP CALCULATOR (TYPABLE DASHBOARD) */}
       <section className="py-32 bg-[#020617] border-y border-white/5 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-20 space-y-4">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="mb-24 space-y-4">
             <p className="text-blue-500 font-bold tracking-[0.5em] text-[10px]">REVENUE AUDIT</p>
-            <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-none">THE REVENUE GAP</h2>
+            <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter uppercase leading-none">THE REVENUE GAP</h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            {/* INPUT PANEL */}
+            {/* INPUT PANEL - TYPABLE CARDS */}
             <div className="lg:col-span-5 space-y-3">
               <CalcInput icon={<MessageSquare size={18}/>} label="Monthly Inbound DMs" value={calc.monthlyDms} onChange={(v: number) => setCalc({...calc, monthlyDms: v})} />
               <CalcInput icon={<MousePointer2 size={18}/>} label="Current Booking Rate" value={calc.bookingRate} unit="%" onChange={(v: number) => setCalc({...calc, bookingRate: v})} />
@@ -210,31 +210,31 @@ export default function LandingPage() {
               <CalcInput icon={<DollarSign size={18}/>} label="Average Offer Price" value={calc.offerPrice} unit="$" onChange={(v: number) => setCalc({...calc, offerPrice: v})} />
             </div>
 
-            {/* RESULTS PANEL */}
-            <div className="lg:col-span-7 bg-blue-600 rounded-[3.5rem] p-10 md:p-14 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+            {/* RESULTS PANEL - HIGH TICKET DASHBOARD */}
+            <div className="lg:col-span-7 bg-blue-600 rounded-[3.5rem] p-10 md:p-14 shadow-2xl flex flex-col justify-between relative overflow-hidden group">
                 <div className="relative z-10 space-y-12">
-                    <div className="space-y-1">
-                        <p className="text-[10px] font-bold tracking-[0.4em] opacity-80">HIDDEN MONTHLY LEAKAGE</p>
-                        <h3 className="text-3xl md:text-3xl font-black tracking-tighter text-white">
+                    <div className="space-y-1 text-left">
+                        <p className="text-[10px] font-bold tracking-[0.4em] opacity-80 text-white">HIDDEN MONTHLY LEAKAGE</p>
+                        <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">
                             +${Math.round(monthlyGap).toLocaleString()}
                         </h3>
                     </div>
 
                     <div className="grid grid-cols-2 gap-6">
-                        <div className="bg-black/10 backdrop-blur-md p-8 rounded-3xl border border-white/5">
-                            <p className="text-[10px] font-bold opacity-60 tracking-widest">DAILY RECOVERED</p>
-                            <p className="text-3xl font-black tracking-tighter uppercase">${Math.round(dailyGap).toLocaleString()}</p>
+                        <div className="bg-black/10 backdrop-blur-md p-8 rounded-3xl border border-white/5 space-y-2 text-left">
+                            <p className="text-[10px] font-bold opacity-60 tracking-widest text-white uppercase">Daily Recovered</p>
+                            <p className="text-3xl font-black tracking-tighter text-white uppercase">${Math.round(dailyGap).toLocaleString()}</p>
                         </div>
-                        <div className="bg-black/10 backdrop-blur-md p-8 rounded-3xl border border-white/5">
-                            <p className="text-[10px] font-bold opacity-60 tracking-widest">YEARLY PROJECTION</p>
-                            <p className="text-3xl font-black tracking-tighter uppercase">${Math.round(yearlyGap).toLocaleString()}</p>
+                        <div className="bg-black/10 backdrop-blur-md p-8 rounded-3xl border border-white/5 space-y-2 text-left">
+                            <p className="text-[10px] font-bold opacity-60 tracking-widest text-white uppercase">Yearly Projection</p>
+                            <p className="text-3xl font-black tracking-tighter text-white uppercase">${Math.round(yearlyGap).toLocaleString()}</p>
                         </div>
                     </div>
 
-                    <div className="pt-8 border-t border-white/10 flex justify-between gap-4">
+                    <div className="pt-8 border-t border-white/10 flex justify-between gap-4 text-left">
                         <div>
-                            <p className="text-[10px] font-bold opacity-60 uppercase tracking-widest">Current Monthly Output</p>
-                            <p className="text-2xl font-black tracking-tighter uppercase">${Math.round(currentMonthlyRev).toLocaleString()}</p>
+                            <p className="text-[10px] font-bold opacity-60 uppercase text-white tracking-widest">Current Monthly Output</p>
+                            <p className="text-2xl font-black text-white/90 tracking-tighter uppercase">${Math.round(currentMonthlyRev).toLocaleString()}</p>
                         </div>
                         <div className="text-right">
                             <p className="text-[10px] font-bold text-blue-100 uppercase tracking-widest">Optimized Potential</p>
@@ -247,7 +247,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
+      
       {/* 7. PARTNER RESULTS */}
       <section className="py-32 bg-white text-slate-950 relative z-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
