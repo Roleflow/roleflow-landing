@@ -119,39 +119,45 @@ export default function LandingPage() {
 
       {/* 3. HERO SECTION */}
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-12 animate-fadeIn">
+        <div className="space-y-8 animate-fadeIn">
            <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full">
-             <div className="h-1.5 w-1.5 rounded-full bg-blue-500"></div>
-             <span className="text-[10px] font-bold tracking-widest text-blue-400">SYSTEM STATUS: ACTIVE</span>
+             <div className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+             <span className="text-[10px] font-bold tracking-widest text-blue-400 uppercase">System Status: Active</span>
            </div>
-           <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-[0.85] uppercase">
-             STOP LOSING <br/>
-             <span className="text-blue-600">$10K+/MONTH</span> <br/>
-             TO SLOW IG DMS.
+           
+           <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+             Stop Losing <span className="text-blue-500 italic">$10k+/Month</span><br/>
+             To Slow IG DMs.
            </h1>
-           <p className="text-slate-400 text-lg md:text-xl font-bold leading-relaxed max-w-xl tracking-widest border-l-4 border-blue-600 pl-8 uppercase">
-             ROLEFLOW INSTALLS A PROPRIETARY AI SALES WORKFORCE THAT QUALIFIES LEADS AND BOOKS HIGH-TICKET MEETINGS IN LESS THAN 60 SECONDS. <span className="text-white">24/7 COVERAGE. ZERO HEADCOUNT.</span>
+
+           <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
+             RoleFlow installs a proprietary AI sales workforce that qualifies leads and books high-ticket meetings in &lt; 60 seconds. <span className="text-white border-b-2 border-blue-500">24/7 coverage. 0% headcount.</span>
            </p>
-           <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-12 py-6 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-blue-500 shadow-2xl shadow-blue-600/20 tracking-[0.2em] uppercase">
-                SCALE MY ACQUISITION <ArrowRight size={24} />
-           </button>
+
+           <div className="pt-4 flex flex-col sm:flex-row gap-4">
+              <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 group">
+                Scale My Outreach <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+           </div>
         </div>
 
+        {/* INTERACTIVE PREVIEW */}
         <div className="relative w-full max-w-lg lg:ml-auto">
-            <div className="absolute -inset-4 bg-blue-500/10 rounded-[3rem] blur-3xl opacity-50"></div>
-            <div className="relative bg-[#0A0F1E] border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[500px]">
+            <div className="absolute -inset-4 bg-blue-500/10 rounded-[3rem] blur-3xl"></div>
+            <div className="relative bg-[#0F172A] border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[500px]">
                 <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
                     <div className="flex items-center gap-3">
                         <img src="/logo.png" className="h-6 w-6 opacity-80" alt="Icon" />
-                        <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase tracking-[0.2em]">AI SETTING AGENT</p>
+                        <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">AI Setting Agent</p>
                     </div>
-                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold border border-emerald-500/20 tracking-[0.2em] uppercase">QUALIFIED</div>
+                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold uppercase border border-emerald-500/20">Qualified</div>
                 </div>
+                
                 <div className="flex-1 p-6 space-y-6 overflow-y-auto">
-                    <ChatBubble role="lead" text="HEY! I'M INTERESTED IN THE PROGRAM. HOW MUCH IS IT?" />
-                    <ChatBubble role="ai" text="I'D LOVE TO HELP WITH THAT! TO SEE IF WE'RE A FIT, ARE YOU CURRENTLY DOING MORE THAN $10K/MONTH IN YOUR BUSINESS?" />
-                    <ChatBubble role="lead" text="YEAH, WE JUST HIT $25K LAST MONTH." />
-                    <ChatBubble role="ai" text="AMAZING. YOU'RE A PERFECT CANDIDATE. I HAVE A SLOT OPEN FOR A STRATEGY CALL TOMORROW AT 2PM. WANT IT?" />
+                    <ChatBubble role="lead" text="Hey! I'm interested in the program. How much is it?" />
+                    <ChatBubble role="ai" text="I'd love to help with that! To see if we're a fit, are you currently doing more than $10k/month in your business?" />
+                    <ChatBubble role="lead" text="Yeah, we just hit $25k last month." />
+                    <ChatBubble role="ai" text="Amazing. You're a perfect candidate. I have a slot open for a Strategy Call tomorrow at 2pm. Want it?" />
                 </div>
             </div>
         </div>
