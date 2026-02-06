@@ -13,7 +13,7 @@ export default function LandingPage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // --- DETAILED CALCULATOR STATE ---
+  // --- REVENUE CALCULATOR STATE ---
   const [calc, setCalc] = useState({ 
     monthlyDms: 450, 
     bookingRate: 5, 
@@ -21,9 +21,8 @@ export default function LandingPage() {
     offerPrice: 5000 
   });
 
-  // DAILY CALCULATIONS
   const dailyDms = calc.monthlyDms / 30;
-  const aiBookingBoost = 10; // AI Lift
+  const aiBookingBoost = 10; 
 
   const dailyCurrentCalls = dailyDms * (calc.bookingRate / 100);
   const dailyCurrentSales = dailyCurrentCalls * (calc.closeRate / 100);
@@ -98,7 +97,7 @@ export default function LandingPage() {
   return (
     <div className="bg-[#030712] text-white min-h-screen font-sans selection:bg-blue-500 overflow-x-hidden uppercase">
       
-      {/* 1. ANNOUNCEMENT BAR */}
+      {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="bg-blue-600 py-2.5 text-center">
         <p className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-white px-4">
           NOW ACCEPTING 3 NEW CLIENTS FOR FEBRUARY • AI INFRASTRUCTURE V5.0
@@ -109,42 +108,42 @@ export default function LandingPage() {
       <nav className="px-6 py-8 max-w-7xl mx-auto flex justify-between items-center relative z-50">
         <div className="flex items-center gap-4">
           <img src="/logo.png" alt="RoleFlow Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
-          <span className="font-bold text-2xl tracking-tighter">ROLE<span className="text-blue-500">FLOW</span></span>
+          <span className="font-bold text-2xl tracking-tighter">ROLE<span className="text-blue-600">FLOW</span></span>
         </div>
         <button onClick={() => setStep(2)} className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-xs font-bold tracking-widest transition-all shadow-lg shadow-blue-600/20 uppercase">
           GET STARTED
         </button>
       </nav>
 
-      {/* 3. HERO SECTION */}
+      {/* 3. ORIGINAL HERO SECTION (RESTORED FORMAT) */}
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8 animate-fadeIn">
+        <div className="space-y-12 animate-fadeIn">
            <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full">
              <div className="h-1.5 w-1.5 rounded-full bg-blue-500"></div>
              <span className="text-[10px] font-bold tracking-widest text-blue-400">SYSTEM STATUS: ACTIVE</span>
            </div>
-           <h1 className="text-5xl md:text-8xl font-black tracking-tight leading-[0.9]">
+           <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-[0.85] uppercase">
              STOP LOSING <br/>
              <span className="text-blue-600">$10K+/MONTH</span> <br/>
              TO SLOW IG DMS.
            </h1>
-           <p className="text-slate-400 text-lg md:text-xl font-bold leading-relaxed max-w-xl text-xs tracking-widest border-l-4 border-blue-600 pl-6">
+           <p className="text-slate-400 text-lg md:text-xl font-bold leading-relaxed max-w-xl tracking-widest border-l-4 border-blue-600 pl-8 uppercase">
              ROLEFLOW INSTALLS A PROPRIETARY AI SALES WORKFORCE THAT QUALIFIES LEADS AND BOOKS HIGH-TICKET MEETINGS IN LESS THAN 60 SECONDS. <span className="text-white">24/7 COVERAGE. ZERO HEADCOUNT.</span>
            </p>
-           <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 hover:bg-blue-500 shadow-xl shadow-blue-600/20 tracking-widest uppercase">
-                SCALE MY ACQUISITION <ArrowRight size={20} />
+           <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-12 py-6 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-blue-500 shadow-2xl shadow-blue-600/20 tracking-[0.2em] uppercase">
+                SCALE MY ACQUISITION <ArrowRight size={24} />
            </button>
         </div>
 
         <div className="relative w-full max-w-lg lg:ml-auto">
             <div className="absolute -inset-4 bg-blue-500/10 rounded-[3rem] blur-3xl opacity-50"></div>
-            <div className="relative bg-[#0A0F1E] border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[500px]">
+            <div className="relative bg-[#0A0F1E] border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[550px]">
                 <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
                     <div className="flex items-center gap-3">
                         <img src="/logo.png" className="h-6 w-6 opacity-80" alt="Icon" />
-                        <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">AI SETTING AGENT</p>
+                        <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase tracking-[0.2em]">AI SETTING AGENT</p>
                     </div>
-                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold border border-emerald-500/20 tracking-widest uppercase">QUALIFIED</div>
+                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold border border-emerald-500/20 tracking-[0.2em] uppercase">QUALIFIED</div>
                 </div>
                 <div className="flex-1 p-6 space-y-6 overflow-y-auto">
                     <ChatBubble role="lead" text="HEY! I'M INTERESTED IN THE PROGRAM. HOW MUCH IS IT?" />
@@ -156,15 +155,15 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 4. VSL SECTION (ON TOP OF SYSTEM OUTLINE) */}
-      <section className="bg-white py-32 rounded-t-[3rem] md:rounded-t-[6rem] shadow-2xl relative z-20">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-            <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px] mb-6 uppercase">THE PROOF OF CONCEPT</p>
-            <h2 className="text-5xl md:text-7xl font-black text-slate-950 tracking-tighter uppercase mb-12">THE BREAKDOWN</h2>
-            <div className="relative aspect-video bg-slate-900 rounded-[2.5rem] border-[12px] border-slate-100 shadow-2xl overflow-hidden cursor-pointer group mb-12" onClick={handleTogglePlay}>
+      {/* 4. REFINED BREAKDOWN SECTION (IMPROVED SPACING) */}
+      <section className="bg-white py-24 rounded-t-[4rem] md:rounded-t-[6rem] shadow-2xl relative z-20">
+        <div className="max-w-5xl mx-auto px-4 md:px-0 text-center">
+            <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px] mb-4 uppercase">THE PROOF OF CONCEPT</p>
+            <h2 className="text-5xl md:text-8xl font-black text-slate-950 tracking-tighter uppercase mb-8">THE BREAKDOWN</h2>
+            <div className="relative aspect-video bg-slate-900 rounded-[2rem] border-8 border-slate-100 shadow-2xl overflow-hidden cursor-pointer group mb-10" onClick={handleTogglePlay}>
                 <video ref={videoRef} playsInline className="w-full h-full object-cover" src={VSL_VIDEO_URL} onEnded={() => setIsPlaying(false)} />
                 {!isPlaying && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px]">
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[1px]">
                         <div className="h-24 w-24 bg-blue-600 rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
                             <Play fill="white" size={32} className="text-white ml-1" />
                         </div>
@@ -193,7 +192,7 @@ export default function LandingPage() {
          </div>
       </section>
 
-      {/* 6. REVENUE GAP CALCULATOR (BELOW SYSTEM OUTLINE) */}
+      {/* 6. REVENUE GAP CALCULATOR */}
       <section className="py-32 bg-[#050A18] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="mb-20 space-y-4">
@@ -213,30 +212,19 @@ export default function LandingPage() {
                 <div className="relative z-10 space-y-12 text-center">
                     <div className="border-b border-white/20 pb-10">
                         <p className="text-[10px] font-bold tracking-[0.4em] mb-4 opacity-80 uppercase">MONTHLY REVENUE LEAKAGE</p>
-                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase leading-none">
+                        <h3 className="text-6xl md:text-9xl font-black tracking-tighter text-white uppercase leading-none">
                             +${Math.round(monthlyGap).toLocaleString()}
                         </h3>
                         <p className="text-xs font-bold tracking-widest mt-4 opacity-70 underline uppercase">MONEY RECOVERED BY INSTANT AI RESPONSE</p>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="bg-white/10 p-6 rounded-2xl border border-white/10 uppercase">
-                            <p className="text-[9px] font-bold opacity-60 mb-2 tracking-widest">DAILY GAP</p>
-                            <p className="text-2xl font-black uppercase tracking-tighter">${Math.round(dailyGap).toLocaleString()}</p>
+                            <p className="text-[9px] font-bold opacity-60 mb-2 tracking-widest uppercase">DAILY GAP</p>
+                            <p className="text-2xl font-black uppercase tracking-tighter leading-none">${Math.round(dailyGap).toLocaleString()}</p>
                         </div>
                         <div className="bg-white/10 p-6 rounded-2xl border border-white/10 uppercase">
-                            <p className="text-[9px] font-bold opacity-60 mb-2 tracking-widest">YEARLY GAP</p>
-                            <p className="text-2xl font-black uppercase tracking-tighter">${Math.round(yearlyGap).toLocaleString()}</p>
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center pt-6 px-4">
-                        <div className="text-left">
-                            <p className="text-[9px] font-bold opacity-60 mb-1 uppercase tracking-widest">Current Daily</p>
-                            <p className="text-2xl font-black text-white/90 tracking-tighter">${Math.round(dailyCurrentRev).toLocaleString()}</p>
-                        </div>
-                        <TrendingUp size={32} className="text-white/30" />
-                        <div className="text-right">
-                            <p className="text-[9px] font-bold opacity-60 mb-1 uppercase tracking-widest">Projected Daily</p>
-                            <p className="text-2xl font-black text-white tracking-tighter">${Math.round(dailyAiRev).toLocaleString()}</p>
+                            <p className="text-[9px] font-bold opacity-60 mb-2 tracking-widest uppercase">YEARLY GAP</p>
+                            <p className="text-2xl font-black uppercase tracking-tighter leading-none">${Math.round(yearlyGap).toLocaleString()}</p>
                         </div>
                     </div>
                 </div>
@@ -246,16 +234,16 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 7. PARTNER RESULTS (BELOW CALCULATOR) */}
+      {/* 7. PARTNER RESULTS */}
       <section className="py-32 bg-white uppercase">
         <div className="max-w-7xl mx-auto px-6 text-center">
             <div className="mb-20 space-y-4 text-slate-950">
                 <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px]">PARTNER RESULTS</p>
-                <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">TRUSTED BY FOUNDERS</h2>
+                <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">TRUSTED BY FOUNDERS</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               {testimonials.map((t, i) => (
-                <div key={i} className="bg-white border border-slate-200 p-10 rounded-[3rem] space-y-8 flex flex-col justify-between hover:shadow-xl transition-all border-b-8 border-b-blue-600">
+                <div key={i} className="bg-white border border-slate-200 p-10 rounded-[3rem] space-y-8 flex flex-col justify-between hover:shadow-xl transition-all border-b-8 border-blue-600 shadow-sm">
                   <div className="space-y-6">
                     <div className="flex justify-between items-start">
                         <img src={t.logo} alt={t.company} className="h-12 w-auto object-contain" />
@@ -263,14 +251,14 @@ export default function LandingPage() {
                             {[...Array(5)].map((_, star) => <Star key={star} size={14} fill="currentColor" />)}
                         </div>
                     </div>
-                    <p className="text-slate-700 font-bold leading-relaxed text-[13px] tracking-tight uppercase">
+                    <p className="text-slate-700 font-bold leading-relaxed text-[13px] tracking-tight uppercase border-l-2 border-blue-600 pl-4">
                         "{t.text}"
                     </p>
                   </div>
                   <div className="pt-8 border-t border-slate-200 flex justify-between items-end">
                     <div>
                       <p className="font-black text-slate-950 text-sm tracking-tighter uppercase mb-1">{t.company}</p>
-                      <p className="text-[9px] text-slate-500 font-bold tracking-[0.2em] uppercase">{t.industry}</p>
+                      <p className="text-[9px] text-slate-500 font-bold tracking-[0.2em] uppercase leading-none">{t.industry}</p>
                     </div>
                     <p className="text-blue-600 font-black text-sm uppercase tracking-tighter whitespace-nowrap">{t.result}</p>
                   </div>
@@ -281,17 +269,17 @@ export default function LandingPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-black py-24 px-6 border-t border-white/5 text-center uppercase">
+      <footer className="bg-black py-24 px-6 border-t border-white/5 text-center uppercase tracking-widest">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
             <div className="flex items-center gap-4">
               <img src="/logo.png" alt="Logo" className="h-10 w-10" />
               <span className="font-black text-2xl uppercase tracking-tighter">ROLEFLOW</span>
             </div>
-            <p className="text-[10px] font-bold text-slate-800 tracking-[0.5em]">© 2026 ROLEFLOW AGENCY • ALL RIGHTS RESERVED</p>
+            <p className="text-[10px] font-bold text-slate-800 tracking-[0.5em] uppercase">© 2026 ROLEFLOW AGENCY • ALL RIGHTS RESERVED</p>
           </div>
       </footer>
 
-      {/* MODALS */}
+      {/* MODALS RENDERED BELOW */}
       {step === 2 && (
           <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-3xl flex items-center justify-center p-4">
               <div className="max-w-2xl w-full bg-white rounded-[3.5rem] p-10 md:p-16 shadow-2xl border-t-[12px] border-blue-600 relative overflow-y-auto max-h-[95vh] text-slate-950">
@@ -330,8 +318,8 @@ export default function LandingPage() {
               {isQualified ? (
                   <div className="max-w-5xl w-full h-full flex flex-col items-center py-12 space-y-10">
                       <img src="/logo.png" className="h-16 w-16" alt="Logo" />
-                      <div className="text-center space-y-3">
-                        <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">APPLICATION APPROVED</h2>
+                      <div className="text-center space-y-3 uppercase">
+                        <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">APPLICATION APPROVED</h2>
                         <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.5em]">SCHEDULE YOUR STRATEGY CALL BELOW</p>
                       </div>
                       <div className="w-full bg-white rounded-[3rem] overflow-hidden shadow-2xl min-h-[750px] border-[16px] border-white/5">
@@ -339,10 +327,10 @@ export default function LandingPage() {
                       </div>
                   </div>
               ) : (
-                  <div className="max-w-lg w-full bg-white rounded-[4rem] p-20 text-center space-y-10 border-t-[12px] border-blue-600 text-slate-950">
+                  <div className="max-w-lg w-full bg-white rounded-[4rem] p-20 text-center space-y-10 border-t-[12px] border-blue-600 text-slate-950 uppercase">
                         <Lock size={80} className="mx-auto text-slate-200" />
                         <h2 className="text-5xl font-black tracking-tighter leading-none uppercase">NOT A FIT</h2>
-                        <p className="text-slate-500 font-bold text-xs tracking-widest leading-relaxed">YOUR CURRENT REVENUE METRICS DO NOT QUALIFY FOR OUR AI INFRASTRUCTURE. PLEASE RETURN WHEN YOU ARE GENERATING AT LEAST $15K/MONTH.</p>
+                        <p className="text-slate-500 font-bold text-xs tracking-widest leading-relaxed uppercase">YOUR CURRENT REVENUE METRICS DO NOT QUALIFY FOR OUR AI INFRASTRUCTURE. PLEASE RETURN WHEN YOU ARE GENERATING AT LEAST $15K/MONTH.</p>
                         <button onClick={() => setStep(1)} className="text-blue-600 font-black tracking-widest text-sm border-b-4 border-blue-600 pb-2">RETURN HOME</button>
                   </div>
               )}
@@ -352,16 +340,16 @@ export default function LandingPage() {
   );
 }
 
-// --- UI ATOMS ---
+// --- REUSABLE COMPONENTS ---
 
 function CalcInput({ label, value, min, max, step, onChange, unit = "" }: any) {
     return (
         <div className="bg-white/5 border border-white/10 p-8 rounded-3xl space-y-6">
-            <div className="flex justify-between items-end">
-                <p className="text-[10px] font-bold text-slate-400 tracking-[0.3em] uppercase">{label}</p>
+            <div className="flex justify-between items-end uppercase">
+                <p className="text-[10px] font-bold text-slate-400 tracking-[0.3em]">{label}</p>
                 <p className="text-2xl font-black text-blue-500 tracking-tighter">{unit === "$" ? "$" : ""}{value.toLocaleString()}{unit === "%" ? "%" : ""}</p>
             </div>
-            <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseInt(e.target.value))} className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-600" />
+            <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseInt(e.target.value))} className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-600 shadow-inner" />
         </div>
     )
 }
@@ -390,7 +378,7 @@ function FormInput({ label, name, val, onChange, type = "text", placeholder }: a
 
 function OutlineCard({ num, title, detail, icon }: any) {
     return (
-        <div className="bg-white/[0.02] border border-white/10 p-12 rounded-[3.5rem] hover:bg-blue-600/10 hover:border-blue-600/50 transition-all relative group overflow-hidden">
+        <div className="bg-white/[0.02] border border-white/10 p-12 rounded-[3.5rem] hover:bg-blue-600/10 hover:border-blue-600/50 transition-all relative group overflow-hidden uppercase">
             <div className="mb-10 h-16 w-16 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">{icon}</div>
             <h4 className="font-black text-2xl text-white mb-4 uppercase tracking-tighter leading-none">{title}</h4>
             <p className="text-[10px] font-bold text-slate-500 leading-relaxed uppercase tracking-widest">{detail}</p>
