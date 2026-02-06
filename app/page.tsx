@@ -15,27 +15,24 @@ export default function LandingPage() {
 
   // --- DETAILED CALCULATOR STATE ---
   const [calc, setCalc] = useState({ 
-    monthlyDms: 300, 
+    monthlyDms: 400, 
     bookingRate: 5, 
     closeRate: 20, 
     offerPrice: 5000 
   });
 
-  // Derived Daily Logic
+  // DAILY CALCULATIONS
   const dailyDms = calc.monthlyDms / 30;
-  const aiBookingBoost = 10; // The conservative lift AI provides via speed
+  const aiBookingBoost = 10; 
 
-  // Current Math (Daily)
   const dailyCurrentCalls = dailyDms * (calc.bookingRate / 100);
   const dailyCurrentSales = dailyCurrentCalls * (calc.closeRate / 100);
   const dailyCurrentRev = dailyCurrentSales * calc.offerPrice;
 
-  // AI Math (Daily)
   const dailyAiCalls = dailyDms * ((calc.bookingRate + aiBookingBoost) / 100);
   const dailyAiSales = dailyAiCalls * (calc.closeRate / 100);
   const dailyAiRev = dailyAiSales * calc.offerPrice;
 
-  // Final Results
   const dailyGap = dailyAiRev - dailyCurrentRev;
   const monthlyGap = dailyGap * 30;
 
@@ -53,21 +50,21 @@ export default function LandingPage() {
       logo: "/logo1.png",
       industry: "REAL ESTATE MARKETING",
       result: "+$120K GCI GENERATED",
-      text: "ROLEFLOW TRANSFORMED OUR IG OUTREACH. WE ARE NOW QUALIFYING LUXURY REAL ESTATE LEADS AT SCALE WITHOUT OUR HUMAN SETTERS GETTING BURNT OUT. THE ROI WAS INSTANT.",
+      text: "ROLEFLOW TRANSFORMED OUR IG OUTREACH. WE ARE NOW QUALIFYING LUXURY REAL ESTATE LEADS AT SCALE WITHOUT OUR HUMAN SETTERS GETTING BURNT OUT.",
     },
     {
       company: "LAND FLIPPING EMPIRE",
       logo: "/logo2.png",
       industry: "LAND INVESTING COACHING",
       result: "82% LEAD-TO-CALL RATE",
-      text: "WE DEAL WITH HIGH-TICKET COACHING. THE AI FILTERS OUT THE WINDOW SHOPPERS AND ONLY BOOKS THE SERIOUS INVESTORS. IT PAID FOR ITSELF INSTANTLY.",
+      text: "THE AI FILTERS OUT THE WINDOW SHOPPERS AND ONLY BOOKS THE SERIOUS INVESTORS. IT PAID FOR ITSELF INSTANTLY.",
     },
     {
       company: "CONQUERGROWTH",
       logo: "/logo3.png",
       industry: "HOME IMPROVEMENT AGENCY",
       result: "340+ APPOINTMENTS",
-      text: "SPEED TO LEAD IS EVERYTHING IN HOME IMPROVEMENT. ROLEFLOW RESPONDS INSTANTLY, SECURING THE PROJECT BEFORE OUR COMPETITORS EVEN SEE THE NOTIFICATION.",
+      text: "SPEED TO LEAD IS EVERYTHING. ROLEFLOW RESPONDS INSTANTLY, SECURING THE PROJECT BEFORE OUR COMPETITORS EVEN SEE THE NOTIFICATION.",
     }
   ];
 
@@ -111,7 +108,7 @@ export default function LandingPage() {
       <nav className="px-6 py-8 max-w-7xl mx-auto flex justify-between items-center relative z-50">
         <div className="flex items-center gap-4">
           <img src="/logo.png" alt="RoleFlow Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
-          <span className="font-bold text-2xl tracking-tighter uppercase">ROLE<span className="text-blue-500">FLOW</span></span>
+          <span className="font-bold text-2xl tracking-tighter">ROLE<span className="text-blue-500">FLOW</span></span>
         </div>
         <button onClick={() => setStep(2)} className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-xs font-bold tracking-widest transition-all shadow-lg shadow-blue-600/20 uppercase">
           GET STARTED
@@ -125,7 +122,7 @@ export default function LandingPage() {
              <div className="h-1.5 w-1.5 rounded-full bg-blue-500"></div>
              <span className="text-[10px] font-bold tracking-widest text-blue-400">SYSTEM STATUS: ACTIVE</span>
            </div>
-           <h1 className="text-5xl md:text-8xl font-black tracking-tight leading-[0.9] uppercase">
+           <h1 className="text-5xl md:text-8xl font-black tracking-tight leading-[0.9]">
              STOP LOSING <br/>
              <span className="text-blue-600">$10K+/MONTH</span> <br/>
              TO SLOW IG DMS.
@@ -133,8 +130,8 @@ export default function LandingPage() {
            <p className="text-slate-400 text-lg md:text-xl font-bold leading-relaxed max-w-xl text-xs tracking-widest border-l-4 border-blue-600 pl-6">
              ROLEFLOW INSTALLS A PROPRIETARY AI SALES WORKFORCE THAT QUALIFIES LEADS AND BOOKS HIGH-TICKET MEETINGS IN LESS THAN 60 SECONDS. <span className="text-white">24/7 COVERAGE. ZERO HEADCOUNT.</span>
            </p>
-           <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 group w-full sm:w-auto tracking-widest">
-                SCALE MY ACQUISITION <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+           <button onClick={() => setStep(2)} className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 hover:bg-blue-500 shadow-xl shadow-blue-600/20 tracking-widest uppercase">
+                SCALE MY ACQUISITION <ArrowRight size={20} />
            </button>
         </div>
 
@@ -144,9 +141,9 @@ export default function LandingPage() {
                 <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
                     <div className="flex items-center gap-3">
                         <img src="/logo.png" className="h-6 w-6 opacity-80" alt="Icon" />
-                        <p className="text-[10px] font-bold tracking-widest text-slate-400">AI SETTING AGENT</p>
+                        <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">AI SETTING AGENT</p>
                     </div>
-                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold border border-emerald-500/20 tracking-widest">QUALIFIED</div>
+                    <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-lg text-[9px] font-bold border border-emerald-500/20 tracking-widest uppercase">QUALIFIED</div>
                 </div>
                 <div className="flex-1 p-6 space-y-6 overflow-y-auto">
                     <ChatBubble role="lead" text="HEY! I'M INTERESTED IN THE PROGRAM. HOW MUCH IS IT?" />
@@ -158,54 +155,40 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 4. REVENUE GAP CALCULATOR (DETAILED) */}
+      {/* 4. REVENUE GAP CALCULATOR */}
       <section className="py-32 bg-[#050A18] border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20 space-y-4">
-            <p className="text-blue-500 font-bold tracking-[0.4em] text-[10px]">THE MATHEMATICS OF AI ACQUISITION</p>
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="mb-20 space-y-4">
+            <p className="text-blue-500 font-bold tracking-[0.4em] text-[10px] uppercase">THE MATHEMATICS OF AI ACQUISITION</p>
             <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase">THE REVENUE GAP CALCULATOR</h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            {/* INPUT PANEL */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start text-left">
             <div className="grid grid-cols-1 gap-4">
-              <CalcInput label="Total Monthly Inbound DMs" value={calc.monthlyDms} min={50} max={3000} step={50} onChange={(v) => setCalc({...calc, monthlyDms: v})} />
-              <CalcInput label="Current Booking Rate (%)" value={calc.rate} min={1} max={30} step={1} unit="%" onChange={(v) => setCalc({...calc, rate: v})} />
-              <CalcInput label="Sales Closing Rate (%)" value={calc.closeRate} min={5} max={50} step={1} unit="%" onChange={(v) => setCalc({...calc, closeRate: v})} />
-              <CalcInput label="Average Offer Price ($)" value={calc.offerPrice} min={1000} max={30000} step={500} unit="$" onChange={(v) => setCalc({...calc, offerPrice: v})} />
+              <CalcInput label="Total Monthly Inbound DMs" value={calc.monthlyDms} min={50} max={3000} step={50} onChange={(v: number) => setCalc({...calc, monthlyDms: v})} />
+              {/* FIXED PROPERTY NAME HERE: calc.bookingRate */}
+              <CalcInput label="Current Booking Rate (%)" value={calc.bookingRate} min={1} max={30} step={1} unit="%" onChange={(v: number) => setCalc({...calc, bookingRate: v})} />
+              <CalcInput label="Sales Closing Rate (%)" value={calc.closeRate} min={5} max={50} step={1} unit="%" onChange={(v: number) => setCalc({...calc, closeRate: v})} />
+              <CalcInput label="Average Offer Price ($)" value={calc.offerPrice} min={1000} max={30000} step={500} unit="$" onChange={(v: number) => setCalc({...calc, offerPrice: v})} />
             </div>
 
-            {/* RESULTS PANEL */}
-            <div className="bg-blue-600 rounded-[3rem] p-8 md:p-12 shadow-2xl shadow-blue-600/20 relative overflow-hidden">
-                <div className="relative z-10 space-y-12">
-                    <div className="text-center border-b border-white/20 pb-10">
-                        <p className="text-[10px] font-bold tracking-[0.4em] mb-4 opacity-80">MONTHLY REVENUE LEAKAGE</p>
-                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white">
-                            +${monthlyGap.toLocaleString()}
+            <div className="bg-blue-600 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <div className="relative z-10 space-y-12 text-center">
+                    <div className="border-b border-white/20 pb-10">
+                        <p className="text-[10px] font-bold tracking-[0.4em] mb-4 opacity-80 uppercase">MONTHLY REVENUE LEAKAGE</p>
+                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase">
+                            +${Math.round(monthlyGap).toLocaleString()}
                         </h3>
-                        <p className="text-xs font-bold tracking-widest mt-4 opacity-70 underline decoration-2 underline-offset-8">MONEY RECOVERED BY INSTANT AI RESPONSE</p>
+                        <p className="text-xs font-bold tracking-widest mt-4 opacity-70 underline uppercase">MONEY RECOVERED BY INSTANT AI RESPONSE</p>
                     </div>
-
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-white/10 p-6 rounded-2xl border border-white/10">
+                        <div className="bg-white/10 p-6 rounded-2xl border border-white/10 uppercase">
                             <p className="text-[9px] font-bold opacity-60 mb-2">DAILY GAP</p>
-                            <p className="text-2xl font-black">${Math.round(dailyGap).toLocaleString()}</p>
+                            <p className="text-2xl font-black uppercase tracking-tighter">${Math.round(dailyGap).toLocaleString()}</p>
                         </div>
-                        <div className="bg-white/10 p-6 rounded-2xl border border-white/10">
-                            <p className="text-[9px] font-bold opacity-60 mb-2">ADDITIONAL DAILY SALES</p>
-                            <p className="text-2xl font-black">{(dailyAiSales - dailyCurrentSales).toFixed(2)}</p>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-between items-center pt-6 px-4">
-                        <div className="text-left">
-                            <p className="text-[9px] font-bold opacity-60 mb-1 uppercase tracking-widest">Current Monthly</p>
-                            <p className="text-2xl font-black text-white/90">${(dailyCurrentRev * 30).toLocaleString()}</p>
-                        </div>
-                        <TrendingUp size={32} className="text-white/30" />
-                        <div className="text-right">
-                            <p className="text-[9px] font-bold opacity-60 mb-1 uppercase tracking-widest">Projected Monthly</p>
-                            <p className="text-2xl font-black text-white">${(dailyAiRev * 30).toLocaleString()}</p>
+                        <div className="bg-white/10 p-6 rounded-2xl border border-white/10 uppercase">
+                            <p className="text-[9px] font-bold opacity-60 mb-2">DAILY CALLS ADDED</p>
+                            <p className="text-2xl font-black uppercase tracking-tighter">{(dailyAiCalls - dailyCurrentCalls).toFixed(1)}</p>
                         </div>
                     </div>
                 </div>
@@ -216,9 +199,9 @@ export default function LandingPage() {
       </section>
 
       {/* 5. VSL SECTION */}
-      <section className="bg-white py-32 rounded-t-[3rem] md:rounded-t-[6rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+      <section className="bg-white py-32 rounded-t-[3rem] md:rounded-t-[6rem] shadow-2xl">
         <div className="max-w-5xl mx-auto px-6 text-center">
-            <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px] mb-6">THE PROOF OF CONCEPT</p>
+            <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px] mb-6 uppercase">THE PROOF OF CONCEPT</p>
             <h2 className="text-5xl md:text-7xl font-black text-slate-950 tracking-tighter uppercase mb-12">THE BREAKDOWN</h2>
             <div className="relative aspect-video bg-slate-900 rounded-[2.5rem] border-[12px] border-slate-100 shadow-2xl overflow-hidden cursor-pointer group" onClick={handleTogglePlay}>
                 <video ref={videoRef} playsInline className="w-full h-full object-cover" src={VSL_VIDEO_URL} onEnded={() => setIsPlaying(false)} />
@@ -235,13 +218,13 @@ export default function LandingPage() {
 
       {/* 6. SYSTEM OUTLINE */}
       <section className="py-32 bg-[#030712] border-t border-white/5">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-24 space-y-4">
+         <div className="max-w-7xl mx-auto px-6 text-center uppercase">
+            <div className="mb-24 space-y-4">
                 <p className="text-blue-500 font-bold tracking-[0.4em] text-[10px]">PROPRIETARY INFRASTRUCTURE</p>
                 <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase">THE SYSTEM OUTLINE</h2>
                 <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                <OutlineCard num="01" title="DATA INGESTION" detail="WE SYNC YOUR PROGRAM KNOWLEDGE, FAQS, AND PAST SALES CALLS INTO OUR NEURAL MODEL." icon={<Search size={28}/>} />
                <OutlineCard num="02" title="AI DEPLOYMENT" detail="OUR AGENTS TAKE OVER YOUR DMS 24/7, QUALIFYING EVERY LEAD IN YOUR UNIQUE BRAND VOICE." icon={<Cpu size={28}/>} />
                <OutlineCard num="03" title="AUTO-BOOKING" detail="HIGH-INTENT LEADS ARE AUTOMATICALLY PUSHED TO YOUR CALENDAR VIA ROLEFLOW CRM." icon={<BarChart3 size={28}/>} />
@@ -250,15 +233,15 @@ export default function LandingPage() {
       </section>
 
       {/* 7. TESTIMONIALS */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20 space-y-4">
+      <section className="py-32 bg-white uppercase">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+            <div className="mb-20 space-y-4">
                 <p className="text-blue-600 font-bold tracking-[0.4em] text-[10px]">PARTNER RESULTS</p>
                 <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase">TRUSTED BY FOUNDERS</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               {testimonials.map((t, i) => (
-                <div key={i} className="bg-slate-50 border border-slate-200 p-10 rounded-[3rem] space-y-8 flex flex-col justify-between hover:shadow-xl transition-all border-b-8 border-b-blue-600">
+                <div key={i} className="bg-slate-50 border border-slate-200 p-10 rounded-[3rem] space-y-8 flex flex-col justify-between hover:shadow-xl transition-all border-b-8 border-blue-600">
                   <div className="space-y-6">
                     <div className="flex justify-between items-start">
                         <img src={t.logo} alt={t.company} className="h-12 w-auto object-contain" />
@@ -272,7 +255,7 @@ export default function LandingPage() {
                   </div>
                   <div className="pt-8 border-t border-slate-200 flex justify-between items-end">
                     <div>
-                      <p className="font-black text-slate-950 text-sm tracking-tighter uppercase leading-none mb-2">{t.company}</p>
+                      <p className="font-black text-slate-950 text-sm tracking-tighter uppercase mb-1">{t.company}</p>
                       <p className="text-[9px] text-slate-500 font-bold tracking-[0.2em] uppercase">{t.industry}</p>
                     </div>
                     <p className="text-blue-600 font-black text-sm uppercase tracking-tighter whitespace-nowrap">{t.result}</p>
@@ -280,7 +263,7 @@ export default function LandingPage() {
                 </div>
               ))}
             </div>
-            <div className="mt-24 text-center">
+            <div className="mt-24">
                <button onClick={() => setStep(2)} className="bg-slate-950 text-white px-16 py-8 rounded-3xl font-black text-xl hover:bg-blue-600 transition-all flex items-center gap-6 mx-auto uppercase tracking-widest shadow-2xl">
                     APPLY TO PARTNER <ArrowRight size={28} />
                 </button>
@@ -288,24 +271,40 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* SURVEY MODAL */}
+      {/* FOOTER */}
+      <footer className="bg-black py-24 px-6 border-t border-white/5 text-center uppercase">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div className="flex items-center gap-4">
+              <img src="/logo.png" alt="Logo" className="h-10 w-10" />
+              <span className="font-black text-2xl uppercase tracking-tighter">ROLEFLOW</span>
+            </div>
+            <div className="flex gap-12 text-[10px] font-bold text-slate-600 tracking-[0.3em] uppercase opacity-60">
+                <a href="#" className="hover:text-white transition">Privacy</a>
+                <a href="#" className="hover:text-white transition">Terms</a>
+                <a href="#" className="hover:text-white transition">Contact</a>
+            </div>
+            <p className="text-[10px] font-bold text-slate-800 tracking-[0.5em]">© 2026 ROLEFLOW AGENCY • ALL RIGHTS RESERVED</p>
+          </div>
+      </footer>
+
+      {/* MODALS RENDERED HERE (Omitted for brevity, logic remains same) */}
       {step === 2 && (
           <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-3xl flex items-center justify-center p-4">
-              <div className="max-w-2xl w-full bg-white rounded-[3.5rem] p-10 md:p-16 shadow-2xl border-t-[12px] border-blue-600 relative overflow-y-auto max-h-[95vh]">
+              <div className="max-w-2xl w-full bg-white rounded-[3.5rem] p-10 md:p-16 shadow-2xl border-t-[12px] border-blue-600 relative overflow-y-auto max-h-[95vh] text-slate-950">
                   <button onClick={() => setStep(1)} className="absolute top-10 right-10 text-slate-300 hover:text-slate-900 transition-colors">
                     <X size={32} />
                   </button>
                   <div className="space-y-12">
                       <div className="space-y-3">
                           <p className="text-blue-600 font-bold text-[10px] tracking-[0.4em] uppercase">PROTOCOL STEP {surveyStep + 1}</p>
-                          <h2 className="text-4xl font-black text-slate-900 tracking-tighter uppercase leading-none">{questions[surveyStep].label}</h2>
+                          <h2 className="text-4xl font-black tracking-tighter uppercase leading-none">{questions[surveyStep].label}</h2>
                       </div>
                       {questions[surveyStep].type === "fields" ? (
                           <div className="grid grid-cols-1 gap-6">
                               <FormInput label="FULL NAME" name="name" val={formData.name} onChange={(e: any) => setFormData({...formData, name: e.target.value})} placeholder="JOHN DOE" />
                               <FormInput label="INSTAGRAM HANDLE" name="handle" val={formData.handle} onChange={(e: any) => setFormData({...formData, handle: e.target.value})} placeholder="@YOURBUSINESS" />
                               <FormInput label="EMAIL ADDRESS" name="email" type="email" val={formData.email} onChange={(e: any) => setFormData({...formData, email: e.target.value})} placeholder="JOHN@EMAIL.COM" />
-                              <button onClick={nextStep} className="mt-6 bg-blue-600 text-white py-6 rounded-2xl font-black tracking-widest hover:bg-blue-700 shadow-xl shadow-blue-600/20 uppercase">CONTINUE APPLICATION</button>
+                              <button onClick={nextStep} className="mt-6 bg-blue-600 text-white py-6 rounded-2xl font-black tracking-widest hover:bg-blue-700 uppercase">CONTINUE APPLICATION</button>
                           </div>
                       ) : (
                           <div className="grid grid-cols-1 gap-3">
@@ -322,7 +321,6 @@ export default function LandingPage() {
           </div>
       )}
 
-      {/* OUTCOME OVERLAY */}
       {step === 3 && (
           <div className="fixed inset-0 z-[100] bg-[#030712] flex items-center justify-center p-4 overflow-y-auto">
               {isQualified ? (
@@ -337,31 +335,15 @@ export default function LandingPage() {
                       </div>
                   </div>
               ) : (
-                  <div className="max-w-lg w-full bg-white rounded-[4rem] p-20 text-center space-y-10 border-t-[12px] border-blue-600">
+                  <div className="max-w-lg w-full bg-white rounded-[4rem] p-20 text-center space-y-10 border-t-[12px] border-blue-600 text-slate-950 uppercase">
                         <Lock size={80} className="mx-auto text-slate-200" />
-                        <h2 className="text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">NOT A FIT</h2>
-                        <p className="text-slate-500 font-bold uppercase text-xs tracking-widest leading-relaxed">YOUR CURRENT REVENUE METRICS DO NOT QUALIFY FOR OUR AI INFRASTRUCTURE. PLEASE RETURN WHEN YOU ARE GENERATING AT LEAST $15K/MONTH.</p>
-                        <button onClick={() => setStep(1)} className="text-blue-600 font-black uppercase tracking-widest text-sm border-b-4 border-blue-600 pb-2">RETURN HOME</button>
+                        <h2 className="text-5xl font-black tracking-tighter leading-none">NOT A FIT</h2>
+                        <p className="text-slate-500 font-bold text-xs tracking-widest leading-relaxed">YOUR CURRENT REVENUE METRICS DO NOT QUALIFY FOR OUR AI INFRASTRUCTURE. PLEASE RETURN WHEN YOU ARE GENERATING AT LEAST $15K/MONTH.</p>
+                        <button onClick={() => setStep(1)} className="text-blue-600 font-black tracking-widest text-sm border-b-4 border-blue-600 pb-2">RETURN HOME</button>
                   </div>
               )}
           </div>
       )}
-
-      {/* FOOTER */}
-      <footer className="bg-black py-24 px-6 border-t border-white/5 text-center">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div className="flex items-center gap-4">
-              <img src="/logo.png" alt="Logo" className="h-10 w-10" />
-              <span className="font-black text-2xl uppercase tracking-tighter">ROLEFLOW</span>
-            </div>
-            <div className="flex gap-12 text-[10px] font-bold text-slate-600 tracking-[0.3em] uppercase">
-                <a href="#" className="hover:text-white transition">Privacy</a>
-                <a href="#" className="hover:text-white transition">Terms</a>
-                <a href="#" className="hover:text-white transition">Contact</a>
-            </div>
-            <p className="text-[10px] font-bold text-slate-800 tracking-[0.5em] uppercase">© 2026 ROLEFLOW AGENCY • ALL RIGHTS RESERVED</p>
-          </div>
-      </footer>
     </div>
   );
 }
@@ -408,7 +390,7 @@ function OutlineCard({ num, title, detail, icon }: any) {
             <div className="mb-10 h-16 w-16 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">{icon}</div>
             <h4 className="font-black text-2xl text-white mb-4 uppercase tracking-tighter leading-none">{title}</h4>
             <p className="text-[10px] font-bold text-slate-500 leading-relaxed uppercase tracking-widest">{detail}</p>
-            <span className="text-[11rem] font-black text-white/[0.03] absolute -bottom-10 -right-8 leading-none select-none italic-none group-hover:text-blue-600/10 transition-colors">{num}</span>
+            <span className="text-[11rem] font-black text-white/[0.03] absolute -bottom-10 -right-8 leading-none select-none italic-none group-hover:text-blue-600/10 transition-colors uppercase">{num}</span>
         </div>
     )
 }
