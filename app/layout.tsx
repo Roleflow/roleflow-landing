@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Script from "next/script"; // 1. Import the Script component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
   title: "RoleFlow | Scale Your IG Client Acquisition with AI",
   description: "Stop losing $10k+/month because of slow Instagram DMs. Automate your lead qualification and booking with our high-ticket AI Setting System.",
   icons: {
-    icon: "/favicon.ico", 
+    icon: "/favicon.ico",
   },
 };
 
@@ -30,10 +29,10 @@ export default function RootLayout({
         
         {children}
 
-        {/* 2. BotCommerce Webchat Script */}
-        <Script 
-          src="https://botcommerce.planifyx.com/script/webchat-link.js?code=1774607898271213" 
-          strategy="lazyOnload" 
+        {/* BotCommerce Embed Code */}
+        <script 
+          type="text/javascript" 
+          src="https://botcommerce.planifyx.com/script/webchat-link.js?code=1774607898271213"
         />
       </body>
     </html>
