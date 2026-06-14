@@ -2,39 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 3, 7, 18;
-  --background-end-rgb: 0, 0, 0;
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  background-color: #0B0F19;
+  color: #ffffff;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  /* High-ticket gradient text */
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-gray-200 to-gray-500;
-  }
-
-  /* Smooth glass effect for cards */
-  .glass-card {
-    @apply bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl;
-  }
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html {
-  scroll-behavior: smooth;
+.text-gradient {
+  background: linear-gradient(135deg, #FF7A00 0%, #A324FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
