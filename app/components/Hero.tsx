@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="relative pt-40 pb-24 px-4 overflow-hidden flex flex-col items-center text-center w-full z-10">
       
-      <!-- Subtle Background Glow -->
+      {/* Subtle Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-gradient-to-r from-purple-900/30 via-pink-900/30 to-orange-900/30 blur-[100px] -z-10 rounded-full" />
 
       {/* Authority Kicker / Status Badge */}
